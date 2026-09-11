@@ -1,0 +1,361 @@
+/* =========================================================
+   FTF GLOBAL STYLES
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap");
+
+@import "tailwindcss";
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+  font-family: "Lato", sans-serif;
+
+  /* Main FTF theme */
+  --ftf-bg: #050817;
+  --ftf-bg-secondary: #0b1022;
+  --ftf-card: #1d293e;
+  --ftf-text: #e9edf5;
+  --ftf-text-muted: #aeb8ca;
+  --ftf-primary: #5e35b1;
+  --ftf-primary-hover: #4a2890;
+  --ftf-accent: #4dd0e1;
+  --ftf-border: rgba(255, 255, 255, 0.08);
+
+  color: var(--ftf-text);
+  background: var(--ftf-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  width: 100%;
+  background: var(--ftf-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+
+  background: var(--ftf-bg);
+  color: var(--ftf-text);
+
+  font-family: "Lato", sans-serif;
+}
+
+#root {
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--ftf-bg);
+}
+
+/* =========================================================
+   GLOBAL PAGE BACKGROUND
+   ========================================================= */
+
+.ftf-page {
+  min-height: 100vh;
+  width: 100%;
+
+  background: var(--ftf-bg);
+  color: var(--ftf-text);
+}
+
+/* Every major page section inherits the same background */
+
+.ftf-page section {
+  background: transparent;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+
+  font-family: "Poppins", sans-serif;
+  color: var(--ftf-text);
+}
+
+p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: "Lato", sans-serif;
+}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.ftf-container {
+  width: min(1180px, calc(100% - 48px));
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .ftf-container {
+    width: calc(100% - 32px);
+  }
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.ftf-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .ftf-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.ftf-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: var(--ftf-primary);
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ftf-btn-primary:hover {
+  background: var(--ftf-primary-hover);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 30px rgba(94, 53, 177, 0.3);
+}
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.ftf-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 13px 27px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+
+  background: transparent;
+  color: var(--ftf-text);
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ftf-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+
+  border-color: var(--ftf-accent);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.ftf-card {
+  background: var(--ftf-card);
+
+  border: 1px solid var(--ftf-border);
+  border-radius: 24px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ftf-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(77, 208, 225, 0.3);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   PAGE HEADERS
+   ========================================================= */
+
+.ftf-page-header {
+  width: 100%;
+
+  padding-top: 150px;
+  padding-bottom: 90px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(94, 53, 177, 0.18),
+      transparent 35%
+    ),
+    var(--ftf-bg);
+}
+
+.ftf-page-header h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+}
+
+.ftf-page-header p {
+  max-width: 680px;
+
+  margin-top: 20px;
+
+  color: var(--ftf-text-muted);
+
+  font-size: 18px;
+}
+
+/* =========================================================
+   MUTED TEXT
+   ========================================================= */
+
+.ftf-muted {
+  color: var(--ftf-text-muted);
+}
+
+/* =========================================================
+   GRADIENT TEXT
+   ========================================================= */
+
+.ftf-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    var(--ftf-accent)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.ftf-divider {
+  width: 100%;
+  height: 1px;
+
+  background: var(--ftf-border);
+}
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes ftf-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ftf-fade-up {
+  animation: ftf-fade-up 0.8s ease-out both;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .ftf-page-header {
+    padding-top: 120px;
+    padding-bottom: 65px;
+  }
+
+  .ftf-page-header h1 {
+    font-size: 42px;
+  }
+
+  .ftf-page-header p {
+    font-size: 16px;
+  }
+}
