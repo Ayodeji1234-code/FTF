@@ -1,5 +1,5 @@
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,6 +15,20 @@ import Volunteer from "./pages/Volunteer";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import News from "./pages/News";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
+  return null;
+}
 
 function Placeholder({ title }: { title: string }) {
   return (
@@ -34,6 +48,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-[#050817] text-white">
+
+        {/* SCROLL TO TOP ON PAGE CHANGE */}
+        <ScrollToTop />
 
         {/* GLOBAL NAVBAR */}
         <Navbar />
@@ -78,4 +95,3 @@ function App() {
 }
 
 export default App;
-
