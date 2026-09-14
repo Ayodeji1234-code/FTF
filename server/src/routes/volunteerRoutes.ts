@@ -24,15 +24,22 @@ const escapeHtml = (value: string) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 
-router.post("/contact", async (req, res) => {
+router.post("/volunteer", async (req, res) => {
   try {
-    const { name, email, phone, message } = req.body;
+    const {
+      name,
+      email,
+      phone,
+      area,
+      motivation,
+    } = req.body;
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!name || !email || !area) {
       return res.status(400).json({
         success: false,
-        message: "Please fill in your name, email and message.",
+        message:
+          "Please fill in your name, email and area of interest.",
       });
     }
 
@@ -40,8 +47,13 @@ router.post("/contact", async (req, res) => {
     if (
       typeof name !== "string" ||
       typeof email !== "string" ||
-      typeof message !== "string" ||
-      (phone !== undefined && phone !== null && typeof phone !== "string")
+      typeof area !== "string" ||
+      (phone !== undefined &&
+        phone !== null &&
+        typeof phone !== "string") ||
+      (motivation !== undefined &&
+        motivation !== null &&
+        typeof motivation !== "string")
     ) {
       return res.status(400).json({
         success: false,
@@ -52,7 +64,8 @@ router.post("/contact", async (req, res) => {
     const cleanName = name.trim();
     const cleanEmail = email.trim();
     const cleanPhone = phone?.trim() || null;
-    const cleanMessage = message.trim();
+    const cleanArea = area.trim();
+    const cleanMotivation = motivation?.trim() || null;
 
     // Validate email
     if (!validator.isEmail(cleanEmail)) {
@@ -84,20 +97,29 @@ router.post("/contact", async (req, res) => {
       });
     }
 
-    if (cleanMessage.length > 5000) {
+    if (cleanArea.length > 150) {
       return res.status(400).json({
         success: false,
-        message: "Message is too long. Please keep it under 5,000 characters.",
+        message: "Area of interest is too long.",
       });
     }
 
-    // Save message to database
-    const contactMessage = await prisma.contactMessage.create({
+    if (cleanMotivation && cleanMotivation.length > 5000) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Motivation is too long. Please keep it under 5,000 characters.",
+      });
+    }
+
+    // Save application to database
+    const application = await prisma.volunteerApplication.create({
       data: {
         name: cleanName,
         email: cleanEmail,
         phone: cleanPhone,
-        message: cleanMessage,
+        area: cleanArea,
+        motivation: cleanMotivation,
       },
     });
 
@@ -105,28 +127,32 @@ router.post("/contact", async (req, res) => {
     const safeName = escapeHtml(cleanName);
     const safeEmail = escapeHtml(cleanEmail);
     const safePhone = escapeHtml(cleanPhone || "Not provided");
-    const safeMessage = escapeHtml(cleanMessage).replace(/\n/g, "<br>");
+    const safeArea = escapeHtml(cleanArea);
+    const safeMotivation = cleanMotivation
+      ? escapeHtml(cleanMotivation).replace(/\n/g, "<br>")
+      : "Not provided";
 
-    // Send email notification
+    // Send notification email
     const { data, error } = await resend.emails.send({
       from: "Favored Tribe Foundation <onboarding@resend.dev>",
       to: ["favoredtribefoundation@gmail.com"],
       replyTo: cleanEmail,
-      subject: `New Website Enquiry from ${cleanName}`,
+      subject: `New Volunteer Application from ${cleanName}`,
       html: `
-        <h2>New Website Enquiry</h2>
+        <h2>New Volunteer Application</h2>
 
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Phone:</strong> ${safePhone}</p>
+        <p><strong>Area of Interest:</strong> ${safeArea}</p>
 
-        <h3>Message</h3>
-        <p>${safeMessage}</p>
+        <h3>Why they want to volunteer</h3>
+        <p>${safeMotivation}</p>
 
         <hr>
 
         <p>
-          This message was submitted through the
+          This application was submitted through the
           Favored Tribe Foundation website.
         </p>
       `,
@@ -137,19 +163,21 @@ router.post("/contact", async (req, res) => {
 
       return res.status(500).json({
         success: false,
-        message: "Message was saved, but the email notification failed.",
-        id: contactMessage.id,
+        message:
+          "Your application was saved, but the email notification failed.",
+        id: application.id,
       });
     }
 
     return res.json({
       success: true,
-      message: "Your message has been sent successfully.",
-      id: contactMessage.id,
+      message:
+        "Thank you for your interest in volunteering with Favored Tribe Foundation. Your application has been received.",
+      id: application.id,
       emailId: data?.id,
     });
   } catch (error) {
-    console.error("Contact error:", error);
+    console.error("Volunteer application error:", error);
 
     return res.status(500).json({
       success: false,
