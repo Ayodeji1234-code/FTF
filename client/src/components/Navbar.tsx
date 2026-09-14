@@ -35,22 +35,7 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 top-0 z-50">
       <div className="border-b border-white/10 bg-[#050817]/95 backdrop-blur-xl">
         <div className="ftf-container">
-          <div className="flex h-[88px] items-center justify-between">
-
-            {/* =================================================
-                LOGO
-                ================================================= */}
-            <Link
-              to="/"
-              onClick={closeMobile}
-              className="group flex h-[88px] items-center"
-            >
-              <img
-                src="/logo.png"
-                alt="Favored Tribe Foundation"
-                className="h-[82px] w-auto max-w-[190px] object-contain brightness-125 contrast-110 transition-transform duration-300 group-hover:scale-105"
-              />
-            </Link>
+          <div className="flex h-[72px] items-center justify-end">
 
             {/* =================================================
                 DESKTOP NAVIGATION
@@ -117,7 +102,7 @@ export default function Navbar() {
             {/* =================================================
                 DESKTOP CTA
                 ================================================= */}
-            <div className="hidden lg:block">
+            <div className="ml-4 hidden lg:block">
               <Link
                 to="/donate"
                 className="ftf-btn-primary px-5 py-3 text-sm"
