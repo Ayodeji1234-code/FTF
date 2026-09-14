@@ -48,21 +48,22 @@ export default function Home() {
             <div className="ftf-fade-up">
 
               {/* ================= BRAND PILL ================= */}
-              <div className="mb-7 inline-flex max-w-full items-center gap-3 rounded-full border border-[#4DD0E1]/25 bg-[#4DD0E1]/5 px-3 py-2 sm:mb-8 sm:gap-4 sm:px-4 sm:py-2.5 backdrop-blur-md">
+<div className="mb-7 inline-flex max-w-full items-center gap-3 rounded-full border border-[#4DD0E1]/25 bg-[#4DD0E1]/5 px-3 py-2.5 backdrop-blur-md sm:mb-8 sm:gap-4 sm:px-4">
 
-                {/* Actual FTF Logo */}
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#050817] ring-1 ring-[#4DD0E1]/20 sm:h-10 sm:w-10">
-                  <img
-                    src="/logo.png"
-                    alt="Favored Tribe Foundation logo"
-                    className="h-9 w-9 object-contain brightness-125 contrast-110 sm:h-10 sm:w-10"
-                  />
-                </div>
+  {/* FTF Logo */}
+  <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#050817] ring-1 ring-[#4DD0E1]/20 sm:h-10 sm:w-10">
+    <img
+      src="/logo.png"
+      alt="Favored Tribe Foundation logo"
+      className="h-9 w-9 object-contain brightness-125 contrast-110 sm:h-10 sm:w-10"
+    />
+  </div>
 
-                <span className="truncate font-['Poppins'] text-xs font-extrabold tracking-wide text-[#4DD0E1] sm:text-sm md:text-base">
-                  FAVORED TRIBE FOUNDATION
-                </span>
-              </div>
+  {/* Organization Name */}
+  <span className="font-['Poppins'] text-[10px] font-extrabold leading-tight tracking-[0.06em] text-[#4DD0E1] sm:text-sm sm:tracking-wide md:text-base">
+    FAVORED TRIBE FOUNDATION
+  </span>
+</div>
 
               {/* ================= MAIN HEADING ================= */}
               <h1 className="max-w-3xl font-['Poppins'] text-4xl font-extrabold leading-[1] tracking-[-0.03em] text-[#F1F3FA] sm:text-6xl lg:text-[76px]">
