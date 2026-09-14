@@ -458,7 +458,7 @@ function Programs() {
 
 
               <Link
-                to="/get-involved"
+                to="/contact"
                 className="ftf-btn-primary whitespace-nowrap"
               >
                 Partner With Us

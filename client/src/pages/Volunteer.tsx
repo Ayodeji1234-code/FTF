@@ -1,3 +1,4 @@
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import {
   Heart,
   Users,
@@ -6,7 +7,8 @@ import {
   ShieldCheck,
   ArrowRight,
   CheckCircle2,
-  Mail,
+  AlertCircle,
+  Send,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -58,12 +60,101 @@ const principles = [
   "Professionalism, reliability, and accountability",
 ];
 
+const volunteerAreas = [
+  "Education & Learning",
+  "Family Empowerment",
+  "Child Protection",
+  "Community Support",
+  "Events & Outreach",
+  "Skills & Professional Support",
+  "Other",
+];
+
 export default function Volunteer() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    area: "",
+    motivation: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+  const [statusType, setStatusType] = useState<"success" | "error" | "">("");
+
+  const handleChange = (
+    e: ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
+    setFormData((previous) => ({
+      ...previous,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setStatus("");
+    setStatusType("");
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/volunteer`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data?.message || "Something went wrong. Please try again.",
+        );
+      }
+
+      setStatus(
+        data?.message ||
+          "Thank you for your interest. Your application has been received.",
+      );
+
+      setStatusType("success");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        area: "",
+        motivation: "",
+      });
+    } catch (error) {
+      console.error("Volunteer form error:", error);
+
+      setStatus(
+        error instanceof Error
+          ? error.message
+          : "Unable to submit your application. Please try again.",
+      );
+
+      setStatusType("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="ftf-page">
-      {/* HERO */}
+      {/* =========================================================
+          HERO
+      ========================================================= */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-[#5e35b1]/20 blur-3xl" />
+
         <div className="absolute right-0 top-40 h-72 w-72 rounded-full bg-[#4DD0E1]/10 blur-3xl" />
 
         <div className="ftf-container relative py-24 md:py-32">
@@ -75,7 +166,9 @@ export default function Volunteer() {
 
             <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
               Volunteer to help{" "}
-              <span className="text-[#4DD0E1]">transform futures.</span>
+              <span className="text-[#4DD0E1]">
+                transform futures.
+              </span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
@@ -85,10 +178,13 @@ export default function Volunteer() {
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link to="/contact" className="ftf-btn-primary">
+              <a
+                href="#volunteer-form"
+                className="ftf-btn-primary"
+              >
                 Become a Volunteer
                 <ArrowRight size={18} />
-              </Link>
+              </a>
 
               <Link
                 to="/programs"
@@ -101,7 +197,9 @@ export default function Volunteer() {
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* =========================================================
+          INTRO
+      ========================================================= */}
       <section className="ftf-section">
         <div className="ftf-container">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -155,7 +253,9 @@ export default function Volunteer() {
         </div>
       </section>
 
-      {/* SERVICE AREAS */}
+      {/* =========================================================
+          SERVICE AREAS
+      ========================================================= */}
       <section className="ftf-section bg-[#080d20]">
         <div className="ftf-container">
           <div className="mx-auto max-w-2xl text-center">
@@ -178,7 +278,10 @@ export default function Volunteer() {
               const Icon = area.icon;
 
               return (
-                <div key={area.title} className="ftf-card p-7">
+                <div
+                  key={area.title}
+                  className="ftf-card p-7 transition duration-300 hover:-translate-y-1 hover:border-[#4DD0E1]/20"
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#5e35b1]/20 text-[#4DD0E1]">
                     <Icon size={24} />
                   </div>
@@ -197,7 +300,9 @@ export default function Volunteer() {
         </div>
       </section>
 
-      {/* WHAT WE VALUE */}
+      {/* =========================================================
+          WHAT WE VALUE
+      ========================================================= */}
       <section className="ftf-section">
         <div className="ftf-container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
@@ -225,11 +330,15 @@ export default function Volunteer() {
             <div className="ftf-card p-7 md:p-9">
               <div className="space-y-4">
                 {principles.map((principle) => (
-                  <div key={principle} className="flex items-start gap-3">
+                  <div
+                    key={principle}
+                    className="flex items-start gap-3"
+                  >
                     <CheckCircle2
                       size={21}
                       className="mt-0.5 shrink-0 text-[#4DD0E1]"
                     />
+
                     <span className="leading-7 text-[#D6DDEA]">
                       {principle}
                     </span>
@@ -241,47 +350,217 @@ export default function Volunteer() {
         </div>
       </section>
 
-      {/* HOW TO APPLY */}
-      <section className="ftf-section bg-[#080d20]">
+      {/* =========================================================
+          VOLUNTEER APPLICATION FORM
+      ========================================================= */}
+      <section
+        id="volunteer-form"
+        className="ftf-section bg-[#080d20]"
+      >
         <div className="ftf-container">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-              <Mail size={30} />
+          <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#4DD0E1]">
+                <Heart size={30} />
+              </div>
+
+              <p className="mt-6 text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+                Volunteer application
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+                Tell us how you would like to contribute.
+              </h2>
+
+              <p className="mt-5 leading-8 text-[#AEB9CD]">
+                Complete the form below and our team will review your
+                application and get in touch with you.
+              </p>
             </div>
 
-            <p className="mt-6 text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-              Ready to contribute?
-            </p>
+            <form
+              onSubmit={handleSubmit}
+              className="ftf-card mt-12 p-7 md:p-10"
+            >
+              <div className="grid gap-6 md:grid-cols-2">
+                {/* =================================================
+                    NAME
+                ================================================= */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-sm font-semibold text-white"
+                  >
+                    Full Name{" "}
+                    <span className="text-[#4DD0E1]">*</span>
+                  </label>
 
-            <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-              Let's explore how you can get involved.
-            </h2>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    autoComplete="name"
+                    placeholder="Enter your full name"
+                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                  />
+                </div>
 
-            <p className="mt-5 leading-8 text-[#AEB9CD]">
-              Tell us a little about yourself, your skills, your interests,
-              and how you would like to contribute. Our team can discuss
-              suitable opportunities with you.
-            </p>
+                {/* =================================================
+                    EMAIL
+                ================================================= */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-semibold text-white"
+                  >
+                    Email Address{" "}
+                    <span className="text-[#4DD0E1]">*</span>
+                  </label>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link to="/contact" className="ftf-btn-primary">
-                Contact Us
-                <ArrowRight size={18} />
-              </Link>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                  />
+                </div>
 
-              <a
-                href="mailto:favoredtribefoundation@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3.5 font-semibold text-[#D6DDEA] transition hover:border-[#4DD0E1]/30 hover:text-white"
-              >
-                <Mail size={18} />
-                Send an Email
-              </a>
-            </div>
+                {/* =================================================
+                    PHONE
+                ================================================= */}
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-2 block text-sm font-semibold text-white"
+                  >
+                    Phone Number
+                  </label>
+
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    autoComplete="tel"
+                    placeholder="Enter your phone number"
+                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                  />
+                </div>
+
+                {/* =================================================
+                    AREA
+                ================================================= */}
+                <div>
+                  <label
+                    htmlFor="area"
+                    className="mb-2 block text-sm font-semibold text-white"
+                  >
+                    Area of Interest{" "}
+                    <span className="text-[#4DD0E1]">*</span>
+                  </label>
+
+                  <select
+                    id="area"
+                    name="area"
+                    value={formData.area}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition focus:border-[#4DD0E1]/50"
+                  >
+                    <option value="" disabled>
+                      Select an area
+                    </option>
+
+                    {volunteerAreas.map((area) => (
+                      <option key={area} value={area}>
+                        {area}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* =================================================
+                  MOTIVATION
+              ================================================= */}
+              <div className="mt-6">
+                <label
+                  htmlFor="motivation"
+                  className="mb-2 block text-sm font-semibold text-white"
+                >
+                  Why would you like to volunteer with FTF?
+                </label>
+
+                <textarea
+                  id="motivation"
+                  name="motivation"
+                  value={formData.motivation}
+                  onChange={handleChange}
+                  rows={6}
+                  placeholder="Tell us about your interests, skills, experience, or how you would like to contribute..."
+                  className="w-full resize-none rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                />
+              </div>
+
+              {/* =================================================
+                  STATUS
+              ================================================= */}
+              {status && (
+                <div
+                  role="alert"
+                  className={`mt-6 flex items-start gap-3 rounded-xl border px-4 py-4 text-sm leading-6 ${
+                    statusType === "success"
+                      ? "border-[#4DD0E1]/20 bg-[#4DD0E1]/10 text-[#B9F4F8]"
+                      : "border-red-400/20 bg-red-400/10 text-red-200"
+                  }`}
+                >
+                  {statusType === "success" ? (
+                    <CheckCircle2
+                      className="mt-0.5 shrink-0"
+                      size={20}
+                    />
+                  ) : (
+                    <AlertCircle
+                      className="mt-0.5 shrink-0"
+                      size={20}
+                    />
+                  )}
+
+                  <span>{status}</span>
+                </div>
+              )}
+
+              {/* =================================================
+                  SUBMIT
+              ================================================= */}
+              <div className="mt-8 flex justify-end">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="ftf-btn-primary disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {loading ? "Submitting..." : "Submit Application"}
+
+                  <Send size={18} />
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* =========================================================
+          FINAL CTA
+      ========================================================= */}
       <section className="ftf-section">
         <div className="ftf-container">
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#17102f] via-[#12182c] to-[#091827] p-8 md:p-12">
@@ -304,7 +583,10 @@ export default function Volunteer() {
                 </p>
               </div>
 
-              <Link to="/get-involved" className="ftf-btn-primary whitespace-nowrap">
+              <Link
+                to="/get-involved"
+                className="ftf-btn-primary whitespace-nowrap"
+              >
                 Get Involved
                 <ArrowRight size={18} />
               </Link>

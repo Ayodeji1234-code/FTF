@@ -1,3 +1,4 @@
+
 import {
   HeartHandshake,
   Users,
@@ -8,6 +9,7 @@ import {
   CheckCircle2,
   Building2,
   GraduationCap,
+  Mail,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -22,16 +24,16 @@ const involvementOptions = [
   {
     icon: Handshake,
     title: "Partner",
-    text: "Work with us through shared purpose, complementary expertise, mutual accountability and measurable results.",
+    text: "Work with us through shared purpose, complementary expertise, mutual accountability and meaningful results.",
     link: "/contact",
-    action: "Become a partner",
+    action: "Start a conversation",
   },
   {
     icon: Gift,
     title: "Donate",
     text: "Support our mission by contributing resources that can help strengthen opportunities for children and families.",
     link: "/donate",
-    action: "Support our work",
+    action: "Explore giving",
   },
   {
     icon: Megaphone,
@@ -133,7 +135,10 @@ export default function GetInvolved() {
               const Icon = option.icon;
 
               return (
-                <div key={option.title} className="ftf-card flex flex-col p-7">
+                <div
+                  key={option.title}
+                  className="ftf-card flex flex-col p-7 transition duration-300 hover:-translate-y-1"
+                >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
                     <Icon className="h-7 w-7 text-[#4DD0E1]" />
                   </div>
@@ -183,6 +188,14 @@ export default function GetInvolved() {
                 Our partnership model is built around shared purpose,
                 complementary strengths and mutual accountability.
               </p>
+
+              <Link
+                to="/contact"
+                className="ftf-btn-primary mt-8"
+              >
+                Discuss Partnership
+                <ArrowRight className="h-5 w-5" />
+              </Link>
             </div>
 
             <div className="rounded-[32px] border border-white/5 bg-[#111A2D] p-8 md:p-10">
@@ -298,26 +311,77 @@ export default function GetInvolved() {
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
-                  Your support can contribute to work that strengthens
-                  education, families and child protection while helping us
-                  build the systems needed for responsible growth.
+                  Our donation systems are currently being prepared. Official
+                  donation and payment details will be published once they are
+                  ready.
                 </p>
+
+                <div className="mt-6 flex items-center gap-3 text-sm font-semibold text-[#D8DCEF]">
+                  <CheckCircle2 className="h-5 w-5 text-[#4DD0E1]" />
+                  Donations opening soon
+                </div>
               </div>
 
-              <Link to="/donate" className="ftf-btn-primary">
-                Donate
+              <Link
+                to="/donate"
+                className="ftf-btn-primary"
+              >
+                Explore Giving
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
 
             <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#4DD0E1]/10 blur-[100px]" />
+
             <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#5E35B1]/20 blur-[100px]" />
           </div>
         </div>
       </section>
 
+      {/* CONTACT / ADVOCACY */}
+      <section className="border-y border-white/5 bg-[#091023]">
+        <div className="ftf-container ftf-section">
+          <div className="mx-auto max-w-4xl rounded-[32px] border border-white/5 bg-[#111A2D] p-8 text-center md:p-12">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
+              <Megaphone className="h-7 w-7 text-[#4DD0E1]" />
+            </div>
+
+            <p className="mt-7 text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+              Advocate & Connect
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
+              Your voice can help amplify the work.
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
+              Share our mission, connect us with organisations and communities,
+              or reach out with an idea for supporting children and families.
+            </p>
+
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                to="/contact"
+                className="ftf-btn-primary"
+              >
+                Contact Us
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+
+              <a
+                href="mailto:favoredtribefoundation@gmail.com"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-7 py-3.5 font-['Poppins'] font-bold text-white transition hover:border-[#4DD0E1]/40 hover:bg-white/5"
+              >
+                <Mail className="h-5 w-5" />
+                Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
-      <section className="border-t border-white/5 bg-[#091023]">
+      <section className="border-t border-white/5 bg-[#050817]">
         <div className="ftf-container py-16 text-center">
           <HeartHandshake className="mx-auto h-10 w-10 text-[#4DD0E1]" />
 
@@ -342,3 +406,4 @@ export default function GetInvolved() {
     </main>
   );
 }
+

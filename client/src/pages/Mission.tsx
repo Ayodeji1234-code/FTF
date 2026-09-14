@@ -1,13 +1,16 @@
+
 import {
   Eye,
   Target,
   Heart,
+  HeartHandshake,
   BookOpen,
   Users,
   ShieldCheck,
   Handshake,
   Lightbulb,
   ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -67,21 +70,50 @@ const journey = [
   },
 ];
 
+const focusAreas = [
+  {
+    icon: BookOpen,
+    title: "Education",
+    text: "Expanding access to and participation in quality learning and development opportunities.",
+  },
+  {
+    icon: Users,
+    title: "Family Empowerment",
+    text: "Strengthening the knowledge, skills, resilience and capacity of families and caregivers.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Child Protection",
+    text: "Promoting the rights, safety and dignity of children while preventing and responding to harm.",
+  },
+];
+
 export default function Mission() {
   return (
     <main className="ftf-page">
-      {/* HERO */}
+      {/* =========================================================
+          HERO
+      ========================================================= */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(94,53,177,0.22),transparent_35%),radial-gradient(circle_at_85%_70%,rgba(77,208,225,0.12),transparent_30%)]" />
 
+        <div className="absolute -left-32 top-24 h-72 w-72 rounded-full bg-[#5E35B1]/10 blur-3xl" />
+
+        <div className="absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-[#4DD0E1]/5 blur-3xl" />
+
         <div className="ftf-container relative py-24 md:py-32">
           <div className="max-w-4xl ftf-fade-up">
-            <p className="mb-5 font-['Poppins'] text-sm font-semibold uppercase tracking-[0.22em] text-[#4DD0E1]">
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#4DD0E1]/10 bg-[#4DD0E1]/10">
+              <Heart className="h-7 w-7 text-[#4DD0E1]" />
+            </div>
+
+            <p className="font-['Poppins'] text-sm font-semibold uppercase tracking-[0.22em] text-[#4DD0E1]">
               Our Mission & Vision
             </p>
 
-            <h1 className="max-w-4xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
-              Transforming futures through kindness.
+            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
+              Transforming futures through{" "}
+              <span className="text-[#4DD0E1]">kindness.</span>
             </h1>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-[#AEB9CD] md:text-xl">
@@ -93,20 +125,23 @@ export default function Mission() {
         </div>
       </section>
 
-      {/* VISION + MISSION */}
+      {/* =========================================================
+          VISION + MISSION
+      ========================================================= */}
       <section className="ftf-section">
         <div className="ftf-container">
           <div className="grid gap-7 lg:grid-cols-2">
-            <div className="ftf-card p-8 md:p-10">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
+            {/* VISION */}
+            <div className="ftf-card group p-8 md:p-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10 transition duration-300 group-hover:bg-[#4DD0E1]/15">
                 <Eye className="h-7 w-7 text-[#4DD0E1]" />
               </div>
 
-              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#4DD0E1]">
+              <p className="mt-7 text-sm font-bold uppercase tracking-widest text-[#4DD0E1]">
                 Our Vision
               </p>
 
-              <h2 className="text-2xl font-bold text-white md:text-3xl">
+              <h2 className="mt-3 text-2xl font-bold text-white md:text-3xl">
                 A future where every child can thrive.
               </h2>
 
@@ -116,16 +151,17 @@ export default function Mission() {
               </p>
             </div>
 
-            <div className="ftf-card p-8 md:p-10">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5E35B1]/20">
+            {/* MISSION */}
+            <div className="ftf-card group p-8 md:p-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5E35B1]/20 transition duration-300 group-hover:bg-[#5E35B1]/30">
                 <Target className="h-7 w-7 text-[#B9A4FF]" />
               </div>
 
-              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#B9A4FF]">
+              <p className="mt-7 text-sm font-bold uppercase tracking-widest text-[#B9A4FF]">
                 Our Mission
               </p>
 
-              <h2 className="text-2xl font-bold text-white md:text-3xl">
+              <h2 className="mt-3 text-2xl font-bold text-white md:text-3xl">
                 Strengthening the conditions children need to flourish.
               </h2>
 
@@ -140,7 +176,9 @@ export default function Mission() {
         </div>
       </section>
 
-      {/* STRATEGIC FOCUS */}
+      {/* =========================================================
+          STRATEGIC FOCUS
+      ========================================================= */}
       <section className="border-y border-white/5 bg-[#091023]">
         <div className="ftf-container ftf-section">
           <div className="max-w-3xl">
@@ -160,49 +198,35 @@ export default function Mission() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <div className="rounded-3xl border border-white/5 bg-[#111A2D] p-7">
-              <BookOpen className="h-8 w-8 text-[#4DD0E1]" />
+            {focusAreas.map((area) => {
+              const Icon = area.icon;
 
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Education
-              </h3>
+              return (
+                <div
+                  key={area.title}
+                  className="ftf-card group p-7 transition duration-300 hover:-translate-y-1"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
+                    <Icon className="h-7 w-7 text-[#4DD0E1]" />
+                  </div>
 
-              <p className="mt-4 leading-7 text-[#AEB9CD]">
-                Expanding access to and participation in quality learning and
-                development opportunities.
-              </p>
-            </div>
+                  <h3 className="mt-6 text-xl font-bold text-white">
+                    {area.title}
+                  </h3>
 
-            <div className="rounded-3xl border border-white/5 bg-[#111A2D] p-7">
-              <Users className="h-8 w-8 text-[#B9A4FF]" />
-
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Family Empowerment
-              </h3>
-
-              <p className="mt-4 leading-7 text-[#AEB9CD]">
-                Strengthening the knowledge, skills, resilience and capacity of
-                families and caregivers.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-white/5 bg-[#111A2D] p-7">
-              <ShieldCheck className="h-8 w-8 text-[#4DD0E1]" />
-
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Child Protection
-              </h3>
-
-              <p className="mt-4 leading-7 text-[#AEB9CD]">
-                Promoting the rights, safety and dignity of children while
-                preventing and responding to harm.
-              </p>
-            </div>
+                  <p className="mt-4 leading-7 text-[#AEB9CD]">
+                    {area.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* PHILOSOPHY */}
+      {/* =========================================================
+          PHILOSOPHY
+      ========================================================= */}
       <section className="ftf-section">
         <div className="ftf-container">
           <div className="mx-auto max-w-4xl text-center">
@@ -221,30 +245,48 @@ export default function Mission() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-5xl rounded-3xl border border-[#4DD0E1]/10 bg-gradient-to-br from-[#111A2D] to-[#0B1222] p-8 md:p-12">
+          <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-3xl border border-[#4DD0E1]/10 bg-gradient-to-br from-[#111A2D] to-[#0B1222] p-8 md:p-12">
             <div className="grid gap-8 md:grid-cols-3">
+              {/* LEARN */}
               <div className="text-center">
-                <span className="text-4xl font-extrabold text-[#4DD0E1]">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
+                  <BookOpen className="h-7 w-7 text-[#4DD0E1]" />
+                </div>
+
+                <span className="mt-5 block text-3xl font-extrabold text-[#4DD0E1]">
                   LEARN
                 </span>
+
                 <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
                   Education and learning opportunities
                 </p>
               </div>
 
+              {/* THRIVE */}
               <div className="text-center">
-                <span className="text-4xl font-extrabold text-[#B9A4FF]">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5E35B1]/20">
+                  <Users className="h-7 w-7 text-[#B9A4FF]" />
+                </div>
+
+                <span className="mt-5 block text-3xl font-extrabold text-[#B9A4FF]">
                   THRIVE
                 </span>
+
                 <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
                   Family empowerment and resilience
                 </p>
               </div>
 
+              {/* BE SAFE */}
               <div className="text-center">
-                <span className="text-4xl font-extrabold text-[#4DD0E1]">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
+                  <ShieldCheck className="h-7 w-7 text-[#4DD0E1]" />
+                </div>
+
+                <span className="mt-5 block text-3xl font-extrabold text-[#4DD0E1]">
                   BE SAFE
                 </span>
+
                 <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
                   Child protection and well-being
                 </p>
@@ -254,7 +296,9 @@ export default function Mission() {
         </div>
       </section>
 
-      {/* THEORY OF CHANGE */}
+      {/* =========================================================
+          THEORY OF CHANGE
+      ========================================================= */}
       <section className="border-y border-white/5 bg-[#091023]">
         <div className="ftf-container ftf-section">
           <div className="max-w-3xl">
@@ -276,13 +320,17 @@ export default function Mission() {
             {journey.map((item) => (
               <div
                 key={item.number}
-                className="relative rounded-3xl border border-white/5 bg-[#111A2D] p-7"
+                className="group rounded-3xl border border-white/5 bg-[#111A2D] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#4DD0E1]/15"
               >
-                <span className="font-['Poppins'] text-sm font-bold text-[#4DD0E1]">
-                  {item.number}
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className="font-['Poppins'] text-sm font-bold text-[#4DD0E1]">
+                    {item.number}
+                  </span>
 
-                <h3 className="mt-5 text-xl font-bold text-white">
+                  <ArrowRight className="h-5 w-5 text-[#5E35B1] transition duration-300 group-hover:translate-x-1 group-hover:text-[#4DD0E1]" />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-white">
                   {item.title}
                 </h3>
 
@@ -294,19 +342,25 @@ export default function Mission() {
           </div>
 
           <div className="mt-8 rounded-3xl border border-[#5E35B1]/20 bg-[#5E35B1]/10 p-7 md:p-9">
-            <p className="text-base leading-8 text-[#D8DCEF]">
-              When children have meaningful learning opportunities, families
-              and caregivers are strengthened, and children are surrounded by
-              safe and protective environments, they are better positioned to
-              develop knowledge, skills, confidence, resilience and
-              capabilities. This contributes to improved well-being, stronger
-              outcomes and greater opportunity to realise their potential.
-            </p>
+            <div className="flex gap-4">
+              <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-[#4DD0E1]" />
+
+              <p className="text-base leading-8 text-[#D8DCEF]">
+                When children have meaningful learning opportunities, families
+                and caregivers are strengthened, and children are surrounded
+                by safe and protective environments, they are better positioned
+                to develop knowledge, skills, confidence, resilience and
+                capabilities. This contributes to improved well-being, stronger
+                outcomes and greater opportunity to realise their potential.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* COMMITMENTS */}
+      {/* =========================================================
+          COMMITMENTS
+      ========================================================= */}
       <section className="ftf-section">
         <div className="ftf-container">
           <div className="text-center">
@@ -330,8 +384,11 @@ export default function Mission() {
               const Icon = item.icon;
 
               return (
-                <div key={item.title} className="ftf-card p-7">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4DD0E1]/10">
+                <div
+                  key={item.title}
+                  className="ftf-card group p-7 transition duration-300 hover:-translate-y-1"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4DD0E1]/10 transition duration-300 group-hover:bg-[#4DD0E1]/15">
                     <Icon className="h-6 w-6 text-[#4DD0E1]" />
                   </div>
 
@@ -349,31 +406,46 @@ export default function Mission() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* =========================================================
+          FINAL CTA
+      ========================================================= */}
       <section className="border-t border-white/5 bg-[#091023]">
         <div className="ftf-container py-20">
-          <div className="overflow-hidden rounded-[32px] border border-white/5 bg-gradient-to-r from-[#5E35B1]/20 to-[#4DD0E1]/10 p-8 text-center md:p-14">
-            <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Be part of a future where every child can thrive.
-            </h2>
+          <div className="relative overflow-hidden rounded-[32px] border border-white/5 bg-gradient-to-br from-[#17102f] via-[#111A2D] to-[#091827] p-8 text-center md:p-14">
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#4DD0E1]/10 blur-[100px]" />
 
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
-              Meaningful change becomes possible when people, organisations
-              and communities work together.
-            </p>
+            <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#5E35B1]/20 blur-[100px]" />
 
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <Link to="/get-involved" className="ftf-btn-primary">
-                Get Involved
-                <ArrowRight className="h-5 w-5" />
-              </Link>
+            <div className="relative z-10">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
+                <HeartHandshake className="h-7 w-7 text-[#4DD0E1]" />
+              </div>
 
-              <Link
-                to="/programs"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-7 py-3.5 font-['Poppins'] font-bold text-white transition hover:border-[#4DD0E1]/40 hover:bg-white/5"
-              >
-                Explore Our Programs
-              </Link>
+              <h2 className="mt-6 text-3xl font-bold text-white md:text-4xl">
+                Be part of a future where every child can thrive.
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
+                Meaningful change becomes possible when people, organisations
+                and communities work together.
+              </p>
+
+              <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+                <Link
+                  to="/get-involved"
+                  className="ftf-btn-primary"
+                >
+                  Get Involved
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+
+                <Link
+                  to="/programs"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-7 py-3.5 font-['Poppins'] font-bold text-white transition hover:border-[#4DD0E1]/40 hover:bg-white/5"
+                >
+                  Explore Our Programs
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -381,3 +453,4 @@ export default function Mission() {
     </main>
   );
 }
+
