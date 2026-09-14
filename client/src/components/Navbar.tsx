@@ -32,7 +32,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50">
+   <header className="relative z-50">
       <div className="border-b border-white/10 bg-[#050817]/95 backdrop-blur-xl">
         <div className="ftf-container">
           <div className="flex h-[72px] items-center justify-end">
