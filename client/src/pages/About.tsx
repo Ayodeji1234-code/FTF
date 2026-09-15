@@ -586,7 +586,7 @@ function About() {
 
                 <p className="mt-4 leading-7 text-[#AEB9CD]">
                   The vision for Favored Tribe Foundation was born during
-                  Caleb's NYSC service as a teacher at St. Augustine Catholic Primary School II, a public primary
+                  Caleb's NYSC service as a teacher at Ogoni central school,Amassoma, a public primary
                   school in Bayelsa State. Witnessing children struggle with
                   poverty, hunger, poor health, and limited access to basic
                   educational needs inspired him to establish a platform that
