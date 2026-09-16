@@ -3,7 +3,6 @@ import type { FormEvent } from "react";
 import {
   ArrowRight,
   CheckCircle2,
-  Clock3,
   Mail,
   MapPin,
   MessageCircle,
@@ -42,13 +41,16 @@ export default function Contact() {
     setStatus("");
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       const data = await response.json();
 
@@ -84,75 +86,69 @@ export default function Contact() {
   return (
     <main className="ftf-page">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#050817] px-6 pb-20 pt-32 md:pb-28 md:pt-40">
-        {/* Background glow */}
-        <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#5e35b1]/20 blur-3xl" />
-        <div className="pointer-events-none absolute right-0 top-20 h-80 w-80 rounded-full bg-[#4dd0e1]/10 blur-3xl" />
+      <section className="relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(94,53,177,0.22),transparent_35%),radial-gradient(circle_at_85%_70%,rgba(77,208,225,0.10),transparent_30%)]" />
 
-        <div className="ftf-container relative">
-          <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#4dd0e1]/20 bg-[#111a2d] px-4 py-2 text-sm font-semibold text-[#4dd0e1]">
-              <MessageCircle size={16} />
-              Let's connect
-            </div>
+        <div className="ftf-container relative py-24 md:py-32">
+          <div className="max-w-4xl ftf-fade-up">
+            <p className="mb-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.22em] text-[#4DD0E1]">
+              <MessageCircle className="h-4 w-4" />
+              Contact Us
+            </p>
 
-            <h1 className="font-['Poppins'] text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-extrabold leading-tight text-white md:text-6xl">
               We would love to
-              <span className="block text-[#4dd0e1]">
+              <span className="block text-[#4DD0E1]">
                 hear from you.
               </span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#aeb9cd]">
-              Whether you want to support our work, partner with Favored Tribe
-              Foundation, volunteer, or simply learn more about what we do,
-              your message matters to us.
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-[#AEB9CD] md:text-xl">
+              Whether you want to support our work, volunteer, partner with us
+              or simply learn more, we would be glad to hear from you.
             </p>
           </div>
         </div>
       </section>
 
-      {/* CONTACT CONTENT */}
-      <section className="bg-[#080d1d] py-20 md:py-24">
+      {/* CONTACT + FORM */}
+      <section className="ftf-section">
         <div className="ftf-container">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            {/* LEFT SIDE */}
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+            {/* CONTACT DETAILS */}
             <div>
-              <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#4dd0e1]">
-                Contact information
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+                Get in touch
               </p>
 
-              <h2 className="font-['Poppins'] text-3xl font-bold text-white md:text-4xl">
-                Start a conversation with us.
+              <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
+                Start a conversation.
               </h2>
 
-              <p className="mt-5 max-w-xl leading-7 text-[#aeb9cd]">
-                Favored Tribe Foundation believes lasting change is built
-                through collaboration. Reach out to us and let's explore how
-                we can work together to strengthen the conditions in which
-                children learn, grow and thrive.
+              <p className="mt-5 max-w-xl leading-7 text-[#AEB9CD]">
+                Reach out to Favored Tribe Foundation and let us know how we
+                can connect, collaborate or support your interest in our work.
               </p>
 
-              {/* Contact cards */}
-              <div className="mt-10 space-y-4">
-                {/* Phone */}
+              <div className="mt-8 space-y-4">
+                {/* PHONE */}
                 <div className="ftf-card p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#b79cff]">
-                      <Phone size={21} />
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#5E35B1]/20">
+                      <Phone className="h-5 w-5 text-[#B79CFF]" />
                     </div>
 
                     <div>
-                      <p className="font-['Poppins'] font-semibold text-white">
+                      <p className="text-sm font-semibold text-white">
                         Phone
                       </p>
 
-                      <div className="mt-2 space-y-1">
+                      <div className="mt-1 space-y-1">
                         {contactInfo.phones.map((phone) => (
                           <a
                             key={phone.href}
                             href={phone.href}
-                            className="block text-[#aeb9cd] transition hover:text-[#4dd0e1]"
+                            className="block text-sm text-[#AEB9CD] transition hover:text-[#4DD0E1]"
                           >
                             {phone.label}
                           </a>
@@ -162,21 +158,21 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Email */}
+                {/* EMAIL */}
                 <div className="ftf-card p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#4dd0e1]/10 text-[#4dd0e1]">
-                      <Mail size={21} />
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#4DD0E1]/10">
+                      <Mail className="h-5 w-5 text-[#4DD0E1]" />
                     </div>
 
                     <div className="min-w-0">
-                      <p className="font-['Poppins'] font-semibold text-white">
+                      <p className="text-sm font-semibold text-white">
                         Email
                       </p>
 
                       <a
                         href={contactInfo.email.href}
-                        className="mt-2 block break-all text-[#aeb9cd] transition hover:text-[#4dd0e1]"
+                        className="mt-1 block break-all text-sm text-[#AEB9CD] transition hover:text-[#4DD0E1]"
                       >
                         {contactInfo.email.label}
                       </a>
@@ -184,50 +180,38 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Location */}
+                {/* LOCATION */}
                 <div className="ftf-card p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#b79cff]">
-                      <MapPin size={21} />
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#5E35B1]/20">
+                      <MapPin className="h-5 w-5 text-[#B79CFF]" />
                     </div>
 
                     <div>
-                      <p className="font-['Poppins'] font-semibold text-white">
+                      <p className="text-sm font-semibold text-white">
                         Location
                       </p>
 
-                      <p className="mt-2 text-[#aeb9cd]">
+                      <p className="mt-1 text-sm text-[#AEB9CD]">
                         {contactInfo.country}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Response */}
-                <div className="ftf-card p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#4dd0e1]/10 text-[#4dd0e1]">
-                      <Clock3 size={21} />
-                    </div>
-
-                    <div>
-                      <p className="font-['Poppins'] font-semibold text-white">
-                        General enquiries
-                      </p>
-
-                      <p className="mt-2 leading-6 text-[#aeb9cd]">
-                        Send us a message and our team will get back to you as
-                        soon as possible.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Socials */}
-              <div className="mt-8">
-                <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#aeb9cd]">
-                  Follow Favored Tribe Foundation
+              {/* RESPONSE NOTE */}
+              <div className="mt-6 rounded-2xl border border-[#4DD0E1]/10 bg-[#4DD0E1]/5 p-5">
+                <p className="text-sm leading-6 text-[#D8DCEF]">
+                  Send us a message and our team will get back to you as soon
+                  as possible.
+                </p>
+              </div>
+
+              {/* SOCIALS */}
+              <div className="mt-7">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#AEB9CD]">
+                  Follow us
                 </p>
 
                 <div className="flex gap-3">
@@ -236,7 +220,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Instagram"
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[#111a2d] font-['Poppins'] font-bold text-[#4dd0e1] transition hover:-translate-y-1 hover:border-[#4dd0e1]/40 hover:bg-[#4dd0e1]/10"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#111A2D] text-sm font-bold text-[#4DD0E1] transition hover:border-[#4DD0E1]/40 hover:bg-[#4DD0E1]/10"
                   >
                     IG
                   </a>
@@ -246,7 +230,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Facebook"
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[#111a2d] font-['Poppins'] text-lg font-bold text-[#b79cff] transition hover:-translate-y-1 hover:border-[#b79cff]/40 hover:bg-[#5e35b1]/10"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#111A2D] text-lg font-bold text-[#B79CFF] transition hover:border-[#B79CFF]/40 hover:bg-[#5E35B1]/10"
                   >
                     f
                   </a>
@@ -254,31 +238,31 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* RIGHT SIDE - FORM */}
+            {/* FORM */}
             <div className="ftf-card p-6 md:p-8 lg:p-10">
-              <div className="mb-8">
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4dd0e1]">
+              <div className="mb-7">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
                   Send a message
                 </p>
 
-                <h2 className="mt-2 font-['Poppins'] text-2xl font-bold text-white md:text-3xl">
+                <h2 className="mt-3 text-2xl font-bold text-white md:text-3xl">
                   How can we help?
                 </h2>
 
-                <p className="mt-3 text-[#aeb9cd]">
+                <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
                   Fill in the form below and send your enquiry directly to
                   Favored Tribe Foundation.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Name */}
+                {/* NAME */}
                 <div>
                   <label
                     htmlFor="name"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Full name <span className="text-[#4dd0e1]">*</span>
+                    Full name <span className="text-[#4DD0E1]">*</span>
                   </label>
 
                   <input
@@ -289,17 +273,17 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Enter your full name"
-                    className="w-full rounded-2xl border border-white/10 bg-[#111a2d] px-5 py-4 text-white outline-none transition placeholder:text-[#6f7b91] focus:border-[#4dd0e1]/60 focus:ring-2 focus:ring-[#4dd0e1]/10"
+                    className="w-full rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
-                {/* Email */}
+                {/* EMAIL */}
                 <div>
                   <label
                     htmlFor="email"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Email address <span className="text-[#4dd0e1]">*</span>
+                    Email address <span className="text-[#4DD0E1]">*</span>
                   </label>
 
                   <input
@@ -310,11 +294,11 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="you@example.com"
-                    className="w-full rounded-2xl border border-white/10 bg-[#111a2d] px-5 py-4 text-white outline-none transition placeholder:text-[#6f7b91] focus:border-[#4dd0e1]/60 focus:ring-2 focus:ring-[#4dd0e1]/10"
+                    className="w-full rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
-                {/* Phone */}
+                {/* PHONE */}
                 <div>
                   <label
                     htmlFor="phone"
@@ -330,17 +314,17 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="0800 000 0000"
-                    className="w-full rounded-2xl border border-white/10 bg-[#111a2d] px-5 py-4 text-white outline-none transition placeholder:text-[#6f7b91] focus:border-[#4dd0e1]/60 focus:ring-2 focus:ring-[#4dd0e1]/10"
+                    className="w-full rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
-                {/* Message */}
+                {/* MESSAGE */}
                 <div>
                   <label
                     htmlFor="message"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Message <span className="text-[#4dd0e1]">*</span>
+                    Message <span className="text-[#4DD0E1]">*</span>
                   </label>
 
                   <textarea
@@ -349,18 +333,18 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={7}
+                    rows={6}
                     placeholder="Tell us how we can help or how you would like to work with us..."
-                    className="w-full resize-none rounded-2xl border border-white/10 bg-[#111a2d] px-5 py-4 text-white outline-none transition placeholder:text-[#6f7b91] focus:border-[#4dd0e1]/60 focus:ring-2 focus:ring-[#4dd0e1]/10"
+                    className="w-full resize-none rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
-                {/* Status */}
+                {/* STATUS */}
                 {status && (
                   <div
                     className={`flex items-start gap-3 rounded-2xl border px-4 py-4 text-sm ${
                       status.toLowerCase().includes("success")
-                        ? "border-[#4dd0e1]/20 bg-[#4dd0e1]/10 text-[#9be8f2]"
+                        ? "border-[#4DD0E1]/20 bg-[#4DD0E1]/10 text-[#9BE8F2]"
                         : "border-red-400/20 bg-red-400/10 text-red-200"
                     }`}
                   >
@@ -369,7 +353,7 @@ export default function Contact() {
                   </div>
                 )}
 
-                {/* Submit */}
+                {/* SUBMIT */}
                 <button
                   type="submit"
                   disabled={loading}
@@ -383,7 +367,7 @@ export default function Contact() {
                   ) : (
                     <>
                       Send Message
-                      <Send size={18} />
+                      <Send className="h-[18px] w-[18px]" />
                     </>
                   )}
                 </button>
@@ -393,28 +377,37 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* QUICK ACTIONS */}
-      <section className="bg-[#050817] py-20">
-        <div className="ftf-container">
-          <div className="grid gap-5 md:grid-cols-3">
-            {/* Donate */}
+      {/* QUICK LINKS */}
+      <section className="border-y border-white/5 bg-[#091023]">
+        <div className="ftf-container ftf-section">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+              Explore FTF
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
+              Looking for something else?
+            </h2>
+
+            <p className="mt-4 text-lg leading-7 text-[#AEB9CD]">
+              Explore other ways to connect with our work.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
             <a
               href="/donate"
-              className="group rounded-3xl border border-white/10 bg-[#111a2d] p-7 transition hover:-translate-y-1 hover:border-[#4dd0e1]/30"
+              className="group ftf-card p-6 transition hover:-translate-y-1 hover:border-[#4DD0E1]/30"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#b79cff]">
-                <ArrowRight size={20} />
-              </div>
-
-              <h3 className="font-['Poppins'] text-xl font-bold text-white">
-                Support our work
+              <h3 className="text-xl font-bold text-white">
+                Support Our Work
               </h3>
 
-              <p className="mt-3 leading-6 text-[#aeb9cd]">
-                Learn how you can support our work for children and families.
+              <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
+                Learn more about supporting children and families.
               </p>
 
-              <span className="mt-5 inline-flex items-center gap-2 font-semibold text-[#4dd0e1]">
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1]">
                 Donate
                 <ArrowRight
                   size={16}
@@ -423,24 +416,19 @@ export default function Contact() {
               </span>
             </a>
 
-            {/* Volunteer */}
             <a
               href="/volunteer"
-              className="group rounded-3xl border border-white/10 bg-[#111a2d] p-7 transition hover:-translate-y-1 hover:border-[#4dd0e1]/30"
+              className="group ftf-card p-6 transition hover:-translate-y-1 hover:border-[#4DD0E1]/30"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#4dd0e1]/10 text-[#4dd0e1]">
-                <ArrowRight size={20} />
-              </div>
-
-              <h3 className="font-['Poppins'] text-xl font-bold text-white">
-                Become a volunteer
+              <h3 className="text-xl font-bold text-white">
+                Become a Volunteer
               </h3>
 
-              <p className="mt-3 leading-6 text-[#aeb9cd]">
-                Use your skills, time and passion to contribute to our mission.
+              <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
+                Give your time and skills to support our mission.
               </p>
 
-              <span className="mt-5 inline-flex items-center gap-2 font-semibold text-[#4dd0e1]">
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1]">
                 Volunteer
                 <ArrowRight
                   size={16}
@@ -449,25 +437,19 @@ export default function Contact() {
               </span>
             </a>
 
-            {/* Programs */}
             <a
               href="/programs"
-              className="group rounded-3xl border border-white/10 bg-[#111a2d] p-7 transition hover:-translate-y-1 hover:border-[#4dd0e1]/30"
+              className="group ftf-card p-6 transition hover:-translate-y-1 hover:border-[#4DD0E1]/30"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#b79cff]">
-                <ArrowRight size={20} />
-              </div>
-
-              <h3 className="font-['Poppins'] text-xl font-bold text-white">
-                Explore our programmes
+              <h3 className="text-xl font-bold text-white">
+                Explore Our Programmes
               </h3>
 
-              <p className="mt-3 leading-6 text-[#aeb9cd]">
-                Discover how education, family empowerment and child
-                protection shape our work.
+              <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
+                Discover the areas that shape our work.
               </p>
 
-              <span className="mt-5 inline-flex items-center gap-2 font-semibold text-[#4dd0e1]">
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1]">
                 View programmes
                 <ArrowRight
                   size={16}
@@ -480,35 +462,24 @@ export default function Contact() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative overflow-hidden bg-[#0b1022] px-6 py-20 md:py-24">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-[#5e35b1]/20 blur-3xl" />
-
-        <div className="ftf-container relative text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4dd0e1]">
+      <section className="border-t border-white/5 bg-[#050817]">
+        <div className="ftf-container py-20 text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
             Favored Tribe Foundation
           </p>
 
-          <h2 className="mx-auto mt-4 max-w-3xl font-['Poppins'] text-3xl font-bold leading-tight text-white md:text-5xl">
+          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold leading-tight text-white md:text-5xl">
             Together, we can help create futures filled with opportunity.
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#aeb9cd]">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
             Every child. Every family. Every future.
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="/get-involved" className="ftf-btn-primary">
-              Get Involved
-              <ArrowRight size={18} />
-            </a>
-
-            <a
-              href="/programs"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 font-['Poppins'] font-bold text-white transition hover:border-[#4dd0e1]/40 hover:bg-white/10"
-            >
-              Explore our work
-            </a>
-          </div>
+          <a href="/get-involved" className="ftf-btn-primary mt-8">
+            Get Involved
+            <ArrowRight className="h-5 w-5" />
+          </a>
         </div>
       </section>
     </main>

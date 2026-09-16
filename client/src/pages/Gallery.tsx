@@ -1,11 +1,7 @@
-
 import { useState } from "react";
 import {
   Camera,
   Heart,
-  Users,
-  GraduationCap,
-  ShieldCheck,
   ArrowRight,
   X,
   ImageOff,
@@ -72,13 +68,15 @@ export default function Gallery() {
     (typeof galleryItems)[number] | null
   >(null);
 
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>(
+    {},
+  );
 
   const filteredItems =
     activeFilter === "All"
       ? galleryItems
       : galleryItems.filter(
-          (item) => item.category === activeFilter
+          (item) => item.category === activeFilter,
         );
 
   const handleImageError = (image: string) => {
@@ -120,9 +118,8 @@ export default function Gallery() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
-              Explore moments from our work, community engagement,
-              outreach, and commitment to creating better futures for
-              children and families.
+              A glimpse into our work, community engagement, and the
+              people at the heart of Favored Tribe Foundation.
             </p>
           </div>
         </div>
@@ -131,10 +128,10 @@ export default function Gallery() {
       {/* =========================================================
           FILTERS
       ========================================================= */}
-      <section className="pt-12">
+      <section className="pt-10 md:pt-12">
         <div className="ftf-container">
           <div
-            className="flex flex-wrap justify-center gap-3"
+            className="flex flex-wrap justify-center gap-2.5"
             role="group"
             aria-label="Gallery filters"
           >
@@ -162,11 +159,24 @@ export default function Gallery() {
       </section>
 
       {/* =========================================================
-          GALLERY GRID
+          GALLERY
       ========================================================= */}
       <section className="ftf-section">
         <div className="ftf-container">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-8 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-semibold text-[#71809A]">
+                {filteredItems.length}{" "}
+                {filteredItems.length === 1 ? "moment" : "moments"}
+              </p>
+            </div>
+
+            <p className="hidden text-sm text-[#71809A] sm:block">
+              Click an image to view it
+            </p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {filteredItems.map((item) => {
               const hasImageError = imageErrors[item.image];
 
@@ -203,8 +213,8 @@ export default function Gallery() {
                         </p>
 
                         <p className="mt-2 max-w-xs text-xs leading-5 text-[#7f8ba3]">
-                          We are preparing more moments from our
-                          work and community activities.
+                          More moments from our work and community
+                          activities will be added here.
                         </p>
                       </div>
                     ) : (
@@ -219,21 +229,18 @@ export default function Gallery() {
                           }
                         />
 
-                        {/* IMAGE GRADIENT */}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#050817] via-transparent to-transparent opacity-80" />
 
-                        {/* CATEGORY + TITLE */}
-                        <div className="absolute inset-x-0 bottom-0 p-6">
+                        <div className="absolute inset-x-0 bottom-0 p-5">
                           <span className="inline-flex rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs font-semibold text-[#4DD0E1] backdrop-blur-md">
                             {item.category}
                           </span>
 
-                          <h3 className="mt-3 text-xl font-bold text-white">
+                          <h3 className="mt-2 text-lg font-bold text-white">
                             {item.title}
                           </h3>
                         </div>
 
-                        {/* HOVER ICON */}
                         <div className="absolute inset-0 flex items-center justify-center bg-[#5e35b1]/40 opacity-0 backdrop-blur-[2px] transition duration-300 group-hover:opacity-100">
                           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#5e35b1] shadow-xl">
                             <Camera size={21} />
@@ -244,7 +251,7 @@ export default function Gallery() {
                   </div>
 
                   {/* DESCRIPTION */}
-                  <div className="p-5">
+                  <div className="p-4">
                     <p className="text-sm leading-6 text-[#AEB9CD]">
                       {item.description}
                     </p>
@@ -266,9 +273,8 @@ export default function Gallery() {
               </h3>
 
               <p className="mx-auto mt-2 max-w-md text-[#AEB9CD]">
-                We do not have gallery moments available in this
-                category yet. Check back as our work continues to
-                grow.
+                There are no gallery moments in this category yet.
+                Check back as our work continues to grow.
               </p>
             </div>
           )}
@@ -276,89 +282,12 @@ export default function Gallery() {
       </section>
 
       {/* =========================================================
-          WHAT THE GALLERY REPRESENTS
+          CTA
       ========================================================= */}
       <section className="ftf-section bg-[#080d20]">
         <div className="ftf-container">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-              What we capture
-            </p>
-
-            <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-              People, purpose, and progress.
-            </h2>
-
-            <p className="mt-5 leading-8 text-[#AEB9CD]">
-              Our work is centred on people. Every programme and
-              partnership is designed to strengthen the conditions
-              that allow children to learn, grow, thrive, and realise
-              their full potential.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {/* CHILDREN LEARNING */}
-            <div className="ftf-card p-7 text-center transition duration-300 hover:-translate-y-1">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-                <GraduationCap size={24} />
-              </div>
-
-              <h3 className="mt-5 text-xl font-bold text-white">
-                Children Learning
-              </h3>
-
-              <p className="mt-3 leading-7 text-[#AEB9CD]">
-                Supporting meaningful opportunities for children to
-                learn and develop.
-              </p>
-            </div>
-
-            {/* STRONGER FAMILIES */}
-            <div className="ftf-card p-7 text-center transition duration-300 hover:-translate-y-1">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-                <Users size={24} />
-              </div>
-
-              <h3 className="mt-5 text-xl font-bold text-white">
-                Stronger Families
-              </h3>
-
-              <p className="mt-3 leading-7 text-[#AEB9CD]">
-                Strengthening families and caregivers so children can
-                thrive.
-              </p>
-            </div>
-
-            {/* SAFER ENVIRONMENTS */}
-            <div className="ftf-card p-7 text-center transition duration-300 hover:-translate-y-1">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-                <ShieldCheck size={24} />
-              </div>
-
-              <h3 className="mt-5 text-xl font-bold text-white">
-                Safer Environments
-              </h3>
-
-              <p className="mt-3 leading-7 text-[#AEB9CD]">
-                Promoting safety, dignity, protection, and well-being
-                for children.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          CTA
-      ========================================================= */}
-      <section className="ftf-section">
-        <div className="ftf-container">
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#17102f] via-[#12182c] to-[#091827] p-8 md:p-12">
-            {/* DECORATIVE GLOW */}
             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#5e35b1]/20 blur-3xl" />
-
-            <div className="absolute -bottom-24 left-1/3 h-48 w-48 rounded-full bg-[#4DD0E1]/5 blur-3xl" />
 
             <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
               <div>
@@ -375,9 +304,9 @@ export default function Gallery() {
                 </h2>
 
                 <p className="mt-4 max-w-2xl leading-7 text-[#AEB9CD]">
-                  Whether through volunteering, partnership, advocacy,
-                  or support, your contribution can help strengthen
-                  opportunities for children and families.
+                  Through volunteering, partnership, advocacy, or
+                  support, you can help create stronger futures for
+                  children and families.
                 </p>
               </div>
 
@@ -404,7 +333,7 @@ export default function Gallery() {
           aria-label={selectedImage.title}
           onClick={closeLightbox}
         >
-          {/* CLOSE BUTTON */}
+          {/* CLOSE */}
           <button
             type="button"
             aria-label="Close image"
@@ -414,7 +343,7 @@ export default function Gallery() {
             <X size={22} />
           </button>
 
-          {/* IMAGE CONTENT */}
+          {/* IMAGE */}
           <div
             className="max-h-[90vh] max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#10172a] shadow-2xl"
             onClick={(event) => event.stopPropagation()}

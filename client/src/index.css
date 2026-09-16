@@ -13,15 +13,18 @@
 :root {
   font-family: "Lato", sans-serif;
 
-  /* Main FTF theme */
   --ftf-bg: #050817;
   --ftf-bg-secondary: #0b1022;
   --ftf-card: #1d293e;
+
   --ftf-text: #e9edf5;
   --ftf-text-muted: #aeb8ca;
+
   --ftf-primary: #5e35b1;
   --ftf-primary-hover: #4a2890;
+
   --ftf-accent: #4dd0e1;
+
   --ftf-border: rgba(255, 255, 255, 0.08);
 
   color: var(--ftf-text);
@@ -29,7 +32,9 @@
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========================================================
@@ -55,10 +60,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-
   background: var(--ftf-bg);
   color: var(--ftf-text);
-
   font-family: "Lato", sans-serif;
 }
 
@@ -70,18 +73,15 @@ body {
 }
 
 /* =========================================================
-   GLOBAL PAGE BACKGROUND
+   GLOBAL PAGE
    ========================================================= */
 
 .ftf-page {
   min-height: 100vh;
   width: 100%;
-
   background: var(--ftf-bg);
   color: var(--ftf-text);
 }
-
-/* Every major page section inherits the same background */
 
 .ftf-page section {
   background: transparent;
@@ -98,7 +98,6 @@ h4,
 h5,
 h6 {
   margin: 0;
-
   font-family: "Poppins", sans-serif;
   color: var(--ftf-text);
 }
@@ -126,7 +125,6 @@ select {
 
 .ftf-container {
   width: min(1180px, calc(100% - 48px));
-
   margin-left: auto;
   margin-right: auto;
 }
@@ -142,14 +140,14 @@ select {
    ========================================================= */
 
 .ftf-section {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 @media (max-width: 768px) {
   .ftf-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 52px;
+    padding-bottom: 52px;
   }
 }
 
@@ -184,10 +182,13 @@ select {
 
 .ftf-btn-primary:hover {
   background: var(--ftf-primary-hover);
-
   transform: translateY(-2px);
-
   box-shadow: 0 12px 30px rgba(94, 53, 177, 0.3);
+}
+
+.ftf-btn-primary:focus-visible {
+  outline: 2px solid var(--ftf-accent);
+  outline-offset: 3px;
 }
 
 /* =========================================================
@@ -221,10 +222,13 @@ select {
 
 .ftf-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.06);
-
   border-color: var(--ftf-accent);
-
   transform: translateY(-2px);
+}
+
+.ftf-btn-secondary:focus-visible {
+  outline: 2px solid var(--ftf-accent);
+  outline-offset: 3px;
 }
 
 /* =========================================================
@@ -233,7 +237,6 @@ select {
 
 .ftf-card {
   background: var(--ftf-card);
-
   border: 1px solid var(--ftf-border);
   border-radius: 24px;
 
@@ -244,10 +247,8 @@ select {
 }
 
 .ftf-card:hover {
-  transform: translateY(-6px);
-
+  transform: translateY(-4px);
   border-color: rgba(77, 208, 225, 0.3);
-
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
@@ -258,8 +259,8 @@ select {
 .ftf-page-header {
   width: 100%;
 
-  padding-top: 150px;
-  padding-bottom: 90px;
+  padding-top: 130px;
+  padding-bottom: 80px;
 
   background:
     radial-gradient(
@@ -277,11 +278,9 @@ select {
 
 .ftf-page-header p {
   max-width: 680px;
-
   margin-top: 20px;
 
   color: var(--ftf-text-muted);
-
   font-size: 18px;
 }
 
@@ -306,7 +305,6 @@ select {
 
   -webkit-background-clip: text;
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
 }
 
@@ -317,7 +315,6 @@ select {
 .ftf-divider {
   width: 100%;
   height: 1px;
-
   background: var(--ftf-border);
 }
 
@@ -342,13 +339,31 @@ select {
 }
 
 /* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
    RESPONSIVE
    ========================================================= */
 
 @media (max-width: 768px) {
   .ftf-page-header {
-    padding-top: 120px;
-    padding-bottom: 65px;
+    padding-top: 100px;
+    padding-bottom: 60px;
   }
 
   .ftf-page-header h1 {

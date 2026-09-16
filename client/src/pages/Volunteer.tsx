@@ -17,37 +17,37 @@ const serviceAreas = [
     icon: GraduationCap,
     title: "Education & Learning",
     description:
-      "Support activities that create meaningful learning opportunities and help children participate and benefit from quality education.",
+      "Help create meaningful learning opportunities and support children's participation in education.",
   },
   {
     icon: Users,
     title: "Family Empowerment",
     description:
-      "Support families and caregivers by contributing knowledge, skills, encouragement, and practical assistance that strengthen resilience.",
+      "Support families and caregivers through knowledge, encouragement, and practical assistance.",
   },
   {
     icon: ShieldCheck,
     title: "Child Protection",
     description:
-      "Support efforts that promote children's safety, dignity, rights, and protection from abuse, neglect, exploitation, and violence.",
+      "Support efforts that promote children's safety, dignity, rights, and well-being.",
   },
   {
     icon: HandHeart,
     title: "Community Support",
     description:
-      "Work alongside communities and stakeholders to strengthen the environments in which children learn, grow, and thrive.",
+      "Work alongside communities and partners to create stronger environments for children.",
   },
   {
     icon: Heart,
     title: "Events & Outreach",
     description:
-      "Assist with community outreach, awareness activities, foundation events, and initiatives that connect people with meaningful causes.",
+      "Support outreach activities, awareness campaigns, events, and community initiatives.",
   },
   {
     icon: Users,
     title: "Skills & Professional Support",
     description:
-      "Share relevant professional knowledge, technical skills, creative abilities, or expertise that can strengthen FTF's work.",
+      "Share your professional knowledge, technical skills, creativity, or experience.",
   },
 ];
 
@@ -55,9 +55,9 @@ const principles = [
   "Respect for children, families, and communities",
   "Commitment to safeguarding and child well-being",
   "Integrity and responsible use of resources",
-  "Collaboration with staff, volunteers, and partners",
-  "Willingness to learn and contribute meaningfully",
-  "Professionalism, reliability, and accountability",
+  "Collaboration and willingness to learn",
+  "Professionalism and reliability",
+  "Accountability in every contribution",
 ];
 
 const volunteerAreas = [
@@ -102,13 +102,16 @@ export default function Volunteer() {
     setStatusType("");
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/volunteer`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/volunteer`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       const data = await response.json();
 
@@ -161,27 +164,23 @@ export default function Volunteer() {
           <div className="max-w-3xl ftf-fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#4DD0E1]/20 bg-[#4DD0E1]/10 px-4 py-2 text-sm font-semibold text-[#4DD0E1]">
               <Heart size={16} />
-              Get involved
+              Volunteer with FTF
             </span>
 
             <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
-              Volunteer to help{" "}
-              <span className="text-[#4DD0E1]">
-                transform futures.
+              Give your time.
+              <span className="block text-[#4DD0E1]">
+                Help transform futures.
               </span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
-              Your time, skills, compassion, and commitment can contribute to
-              creating better conditions for children and families to learn,
-              grow, thrive, and realise their full potential.
+              Your time, skills, and compassion can help create better
+              conditions for children and families to learn, grow, and thrive.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#volunteer-form"
-                className="ftf-btn-primary"
-              >
+              <a href="#volunteer-form" className="ftf-btn-primary">
                 Become a Volunteer
                 <ArrowRight size={18} />
               </a>
@@ -198,65 +197,9 @@ export default function Volunteer() {
       </section>
 
       {/* =========================================================
-          INTRO
+          WAYS TO VOLUNTEER
       ========================================================= */}
       <section className="ftf-section">
-        <div className="ftf-container">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-                Why volunteer with FTF?
-              </p>
-
-              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-                Be part of a community committed to children.
-              </h2>
-
-              <p className="mt-5 leading-8 text-[#AEB9CD]">
-                Favored Tribe Foundation believes that lasting change is
-                strengthened through collective action. Volunteers can bring
-                different experiences, skills, perspectives, and forms of
-                support to our work with children, families, schools,
-                communities, and partners.
-              </p>
-
-              <p className="mt-5 leading-8 text-[#AEB9CD]">
-                Whether you have professional expertise, practical skills,
-                creative abilities, or simply a willingness to serve,
-                volunteering can be a meaningful way to contribute to our
-                mission.
-              </p>
-            </div>
-
-            <div className="ftf-card p-7 md:p-9">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-                <Heart size={28} />
-              </div>
-
-              <h3 className="mt-6 text-2xl font-bold text-white">
-                Every contribution matters.
-              </h3>
-
-              <p className="mt-4 leading-7 text-[#AEB9CD]">
-                Meaningful transformation does not happen through one person
-                alone. It happens when people bring their time, knowledge,
-                resources, and compassion together around a shared purpose.
-              </p>
-
-              <div className="mt-6 h-px bg-white/10" />
-
-              <p className="mt-5 text-sm font-semibold text-[#4DD0E1]">
-                Transforming Futures Through Kindness
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          SERVICE AREAS
-      ========================================================= */}
-      <section className="ftf-section bg-[#080d20]">
         <div className="ftf-container">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
@@ -268,29 +211,29 @@ export default function Volunteer() {
             </h2>
 
             <p className="mt-5 leading-7 text-[#AEB9CD]">
-              Volunteer opportunities can support different aspects of FTF's
-              work and may evolve as our programmes and partnerships grow.
+              Volunteers can contribute across different areas of our work as
+              programmes and partnerships continue to grow.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {serviceAreas.map((area) => {
               const Icon = area.icon;
 
               return (
                 <div
                   key={area.title}
-                  className="ftf-card p-7 transition duration-300 hover:-translate-y-1 hover:border-[#4DD0E1]/20"
+                  className="ftf-card p-6 transition duration-300 hover:-translate-y-1 hover:border-[#4DD0E1]/20"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-                    <Icon size={24} />
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#5e35b1]/20 text-[#4DD0E1]">
+                    <Icon size={22} />
                   </div>
 
-                  <h3 className="mt-6 text-xl font-bold text-white">
+                  <h3 className="mt-5 text-lg font-bold text-white">
                     {area.title}
                   </h3>
 
-                  <p className="mt-3 leading-7 text-[#AEB9CD]">
+                  <p className="mt-2 leading-7 text-[#AEB9CD]">
                     {area.description}
                   </p>
                 </div>
@@ -303,65 +246,55 @@ export default function Volunteer() {
       {/* =========================================================
           WHAT WE VALUE
       ========================================================= */}
-      <section className="ftf-section">
+      <section className="ftf-section bg-[#080d20]">
         <div className="ftf-container">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
                 Our expectations
               </p>
 
               <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-                Volunteer with purpose and responsibility.
+                Volunteer with purpose.
               </h2>
 
-              <p className="mt-5 leading-8 text-[#AEB9CD]">
-                Because our work involves children and families, volunteers
-                are expected to uphold high standards of conduct,
-                safeguarding, respect, accountability, and professionalism.
-              </p>
-
-              <p className="mt-5 leading-8 text-[#AEB9CD]">
-                Specific requirements may vary depending on the nature of the
-                volunteer role and the activity involved.
+              <p className="mt-5 max-w-xl leading-8 text-[#AEB9CD]">
+                Because our work involves children and families, every
+                volunteer is expected to contribute with respect,
+                responsibility, safeguarding, and professionalism.
               </p>
             </div>
 
-            <div className="ftf-card p-7 md:p-9">
-              <div className="space-y-4">
-                {principles.map((principle) => (
-                  <div
-                    key={principle}
-                    className="flex items-start gap-3"
-                  >
-                    <CheckCircle2
-                      size={21}
-                      className="mt-0.5 shrink-0 text-[#4DD0E1]"
-                    />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {principles.map((principle) => (
+                <div
+                  key={principle}
+                  className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-4"
+                >
+                  <CheckCircle2
+                    size={20}
+                    className="mt-0.5 shrink-0 text-[#4DD0E1]"
+                  />
 
-                    <span className="leading-7 text-[#D6DDEA]">
-                      {principle}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                  <span className="text-sm leading-6 text-[#D6DDEA]">
+                    {principle}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================
-          VOLUNTEER APPLICATION FORM
+          VOLUNTEER FORM
       ========================================================= */}
-      <section
-        id="volunteer-form"
-        className="ftf-section bg-[#080d20]"
-      >
+      <section id="volunteer-form" className="ftf-section">
         <div className="ftf-container">
           <div className="mx-auto max-w-4xl">
             <div className="mx-auto max-w-2xl text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-                <Heart size={30} />
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#4DD0E1]">
+                <Heart size={28} />
               </div>
 
               <p className="mt-6 text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
@@ -372,27 +305,23 @@ export default function Volunteer() {
                 Tell us how you would like to contribute.
               </h2>
 
-              <p className="mt-5 leading-8 text-[#AEB9CD]">
-                Complete the form below and our team will review your
-                application and get in touch with you.
+              <p className="mt-4 leading-7 text-[#AEB9CD]">
+                Complete the form and our team will review your application.
               </p>
             </div>
 
             <form
               onSubmit={handleSubmit}
-              className="ftf-card mt-12 p-7 md:p-10"
+              className="ftf-card mt-10 p-6 md:p-9"
             >
-              <div className="grid gap-6 md:grid-cols-2">
-                {/* =================================================
-                    NAME
-                ================================================= */}
+              <div className="grid gap-5 md:grid-cols-2">
+                {/* NAME */}
                 <div>
                   <label
                     htmlFor="name"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Full Name{" "}
-                    <span className="text-[#4DD0E1]">*</span>
+                    Full Name <span className="text-[#4DD0E1]">*</span>
                   </label>
 
                   <input
@@ -408,16 +337,13 @@ export default function Volunteer() {
                   />
                 </div>
 
-                {/* =================================================
-                    EMAIL
-                ================================================= */}
+                {/* EMAIL */}
                 <div>
                   <label
                     htmlFor="email"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Email Address{" "}
-                    <span className="text-[#4DD0E1]">*</span>
+                    Email Address <span className="text-[#4DD0E1]">*</span>
                   </label>
 
                   <input
@@ -433,9 +359,7 @@ export default function Volunteer() {
                   />
                 </div>
 
-                {/* =================================================
-                    PHONE
-                ================================================= */}
+                {/* PHONE */}
                 <div>
                   <label
                     htmlFor="phone"
@@ -456,9 +380,7 @@ export default function Volunteer() {
                   />
                 </div>
 
-                {/* =================================================
-                    AREA
-                ================================================= */}
+                {/* AREA */}
                 <div>
                   <label
                     htmlFor="area"
@@ -489,10 +411,8 @@ export default function Volunteer() {
                 </div>
               </div>
 
-              {/* =================================================
-                  MOTIVATION
-              ================================================= */}
-              <div className="mt-6">
+              {/* MOTIVATION */}
+              <div className="mt-5">
                 <label
                   htmlFor="motivation"
                   className="mb-2 block text-sm font-semibold text-white"
@@ -505,19 +425,17 @@ export default function Volunteer() {
                   name="motivation"
                   value={formData.motivation}
                   onChange={handleChange}
-                  rows={6}
+                  rows={5}
                   placeholder="Tell us about your interests, skills, experience, or how you would like to contribute..."
                   className="w-full resize-none rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
                 />
               </div>
 
-              {/* =================================================
-                  STATUS
-              ================================================= */}
+              {/* STATUS */}
               {status && (
                 <div
                   role="alert"
-                  className={`mt-6 flex items-start gap-3 rounded-xl border px-4 py-4 text-sm leading-6 ${
+                  className={`mt-5 flex items-start gap-3 rounded-xl border px-4 py-4 text-sm leading-6 ${
                     statusType === "success"
                       ? "border-[#4DD0E1]/20 bg-[#4DD0E1]/10 text-[#B9F4F8]"
                       : "border-red-400/20 bg-red-400/10 text-red-200"
@@ -539,17 +457,14 @@ export default function Volunteer() {
                 </div>
               )}
 
-              {/* =================================================
-                  SUBMIT
-              ================================================= */}
-              <div className="mt-8 flex justify-end">
+              {/* SUBMIT */}
+              <div className="mt-7">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="ftf-btn-primary disabled:cursor-not-allowed disabled:opacity-60"
+                  className="ftf-btn-primary w-full justify-center sm:w-auto"
                 >
                   {loading ? "Submitting..." : "Submit Application"}
-
                   <Send size={18} />
                 </button>
               </div>
@@ -566,20 +481,19 @@ export default function Volunteer() {
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#17102f] via-[#12182c] to-[#091827] p-8 md:p-12">
             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#5e35b1]/20 blur-3xl" />
 
-            <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+            <div className="relative grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-                  Every child. Every family. Every future.
+                  Transforming futures through kindness
                 </p>
 
                 <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-                  Together, we can create lasting change.
+                  Your contribution can make a difference.
                 </h2>
 
                 <p className="mt-4 max-w-2xl leading-7 text-[#AEB9CD]">
-                  Join Favored Tribe Foundation in strengthening the conditions
-                  that enable children to learn, grow, thrive, and realise
-                  their full potential.
+                  Join Favored Tribe Foundation in creating stronger
+                  conditions for children and families to thrive.
                 </p>
               </div>
 

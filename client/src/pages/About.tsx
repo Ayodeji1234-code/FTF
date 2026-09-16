@@ -1,3 +1,4 @@
+
 import {
   BookOpen,
   HeartHandshake,
@@ -10,87 +11,79 @@ import {
   Scale,
   Award,
   Leaf,
+  ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const pillars = [
+  {
+    icon: BookOpen,
+    title: "Education",
+    text: "Creating opportunities for children to access quality education, learning resources, mentorship and skills development.",
+  },
+  {
+    icon: Users,
+    title: "Family Empowerment",
+    text: "Strengthening parents, caregivers and families to provide stable, supportive and nurturing environments for children.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Child Protection",
+    text: "Promoting children's rights, safety, dignity and well-being while contributing to safer environments.",
+  },
+];
 
 const values = [
   {
     title: "Compassion",
-    text: "We serve with empathy, kindness, and genuine concern for every child, family, and community.",
+    text: "We serve with empathy, kindness and genuine concern.",
     icon: HeartHandshake,
   },
   {
     title: "Integrity",
-    text: "We uphold honesty, transparency, accountability, and ethical leadership in every aspect of our work.",
+    text: "We uphold honesty, transparency, accountability and ethical leadership.",
     icon: ShieldCheck,
   },
   {
     title: "Excellence",
-    text: "We pursue high standards in programme delivery, organisational management, learning, and impact.",
+    text: "We pursue high standards in our programmes, management and impact.",
     icon: Award,
   },
   {
     title: "Equity",
-    text: "We believe every child deserves equal opportunities regardless of background or circumstance.",
+    text: "We believe every child deserves meaningful opportunities regardless of circumstance.",
     icon: Scale,
   },
   {
     title: "Empowerment",
-    text: "We equip children, families, and communities with knowledge, skills, and opportunities for sustainable change.",
+    text: "We equip children, families and communities with knowledge, skills and opportunities.",
     icon: Lightbulb,
   },
   {
     title: "Collaboration",
-    text: "We believe meaningful change is achieved through purposeful partnerships and collective action.",
+    text: "We believe meaningful change is strengthened through purposeful partnerships.",
     icon: Handshake,
   },
   {
     title: "Stewardship",
-    text: "We manage resources responsibly and transparently to create meaningful and sustainable impact.",
+    text: "We manage resources responsibly and transparently to create sustainable impact.",
     icon: Leaf,
   },
-];
-
-const pillars = [
-  {
-    number: "01",
-    title: "Education",
-    text: "Creating opportunities for children to access, participate in, and benefit from quality education, learning resources, mentorship, skills development, and other opportunities that strengthen their capabilities and confidence.",
-    icon: BookOpen,
-  },
-  {
-    number: "02",
-    title: "Family Empowerment",
-    text: "Strengthening parents, caregivers, and families with relevant knowledge, skills, resilience, and opportunities to provide stable, supportive, and nurturing environments for children.",
-    icon: Users,
-  },
-  {
-    number: "03",
-    title: "Child Protection",
-    text: "Promoting children's rights, safety, dignity, and well-being while contributing to the prevention and response to abuse, neglect, exploitation, violence, and other forms of harm.",
-    icon: ShieldCheck,
-  },
-];
-
-const objectives = [
-  "Advance Child Development",
-  "Improve Educational Opportunities",
-  "Strengthen Families and Caregivers",
-  "Promote Child Protection and Well-being",
-  "Strengthen Community and Institutional Capacity",
-  "Generate Evidence and Learning",
 ];
 
 function About() {
   return (
     <main className="ftf-page">
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <section className="relative overflow-hidden bg-[#050817] py-24 md:py-32">
+
         <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#5E35B1]/20 blur-3xl" />
+
         <div className="absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-[#4DD0E1]/10 blur-3xl" />
 
         <div className="ftf-container relative">
+
           <div className="max-w-4xl">
 
             <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
@@ -103,58 +96,58 @@ function About() {
             </h1>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-[#AEB9CD]">
-              Favored Tribe Foundation (FTF) is a child-focused,
-              non-governmental, non-profit organisation committed to creating
-              the conditions that enable vulnerable and disadvantaged children
-              to learn, grow, thrive and realise their full potential.
+              Favored Tribe Foundation is a child-focused, non-profit
+              organisation committed to creating the conditions that enable
+              vulnerable and disadvantaged children to learn, grow and thrive.
             </p>
 
           </div>
+
         </div>
       </section>
 
 
-      {/* WHO WE ARE */}
+      {/* ================= WHO WE ARE ================= */}
       <section className="ftf-section bg-[#0B1022]">
+
         <div className="ftf-container">
 
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
 
             <div>
+
               <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
                 Who We Are
               </span>
 
-              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
+              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold leading-tight text-white md:text-4xl">
                 Child development is at the heart of our work.
               </h2>
+
             </div>
 
-            <div className="space-y-6 text-[#AEB9CD] leading-8">
+            <div className="space-y-5 leading-8 text-[#AEB9CD]">
+
               <p>
-                Favored Tribe Foundation is a child-focused organisation
-                committed to advancing child development and creating
-                opportunities for children, particularly those experiencing
-                vulnerability and disadvantage.
+                Favored Tribe Foundation is committed to advancing child
+                development and creating opportunities for children,
+                particularly those experiencing vulnerability and disadvantage.
               </p>
 
               <p>
-                We recognise that poverty, limited access to quality
-                education, inadequate family support, exposure to violence,
-                and unsafe environments can affect children's learning,
-                health, emotional well-being, protection, and future
+                We recognise that poverty, limited access to quality education,
+                inadequate family support, poor nutrition, violence and unsafe
+                environments can affect children's development and future
                 opportunities.
               </p>
 
               <p>
-                Our approach recognises that sustainable improvements in
-                children's well-being require more than addressing individual
-                needs in isolation. Children are more likely to thrive when
-                they have meaningful learning opportunities, when families
-                and caregivers are equipped to provide stable and nurturing
-                environments, and when systems and communities actively
-                protect children from harm.
+                Our approach therefore looks beyond individual needs. We work
+                towards stronger learning opportunities, empowered families
+                and safer environments where children can develop and reach
+                their potential.
               </p>
+
             </div>
 
           </div>
@@ -163,11 +156,13 @@ function About() {
       </section>
 
 
-      {/* STRATEGIC FOCUS */}
+      {/* ================= STRATEGIC FOCUS ================= */}
       <section className="ftf-section bg-[#050817]">
+
         <div className="ftf-container">
 
           <div className="mx-auto max-w-3xl text-center">
+
             <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
               Our Strategic Focus
             </span>
@@ -177,30 +172,34 @@ function About() {
             </h2>
 
             <p className="mt-5 leading-7 text-[#AEB9CD]">
-              FTF's overarching strategic focus is Child Development,
-              supported by three interconnected strategic pillars.
+              Our work is built around three interconnected areas that help
+              create stronger conditions for children to thrive.
             </p>
+
           </div>
 
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
 
-            {pillars.map((pillar) => {
+            {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
 
               return (
                 <div
-                  key={pillar.number}
+                  key={pillar.title}
                   className="ftf-card p-7"
                 >
+
                   <div className="flex items-center justify-between">
-                    <span className="font-['Poppins'] text-3xl font-extrabold text-[#4DD0E1]/30">
-                      {pillar.number}
+
+                    <span className="font-['Poppins'] text-3xl font-extrabold text-[#4DD0E1]/25">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
 
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#5E35B1]/20">
                       <Icon className="h-6 w-6 text-[#4DD0E1]" />
                     </div>
+
                   </div>
 
                   <h3 className="mt-7 font-['Poppins'] text-xl font-bold text-white">
@@ -210,6 +209,7 @@ function About() {
                   <p className="mt-4 text-sm leading-7 text-[#AEB9CD]">
                     {pillar.text}
                   </p>
+
                 </div>
               );
             })}
@@ -220,13 +220,14 @@ function About() {
       </section>
 
 
-      {/* VISION & MISSION */}
+      {/* ================= VISION & MISSION ================= */}
       <section className="ftf-section bg-[#0B1022]">
+
         <div className="ftf-container">
 
           <div className="grid gap-6 md:grid-cols-2">
 
-            {/* VISION */}
+            {/* Vision */}
             <div className="rounded-[28px] border border-white/10 bg-[#1D293E] p-8 md:p-10">
 
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
@@ -238,14 +239,14 @@ function About() {
               </span>
 
               <p className="mt-5 font-['Poppins'] text-xl font-semibold leading-9 text-white">
-                A world where every child has the opportunity to learn,
-                grow, thrive and realise their full potential.
+                A world where every child has the opportunity to learn, grow,
+                thrive and realise their full potential.
               </p>
 
             </div>
 
 
-            {/* MISSION */}
+            {/* Mission */}
             <div className="rounded-[28px] border border-white/10 bg-[#1D293E] p-8 md:p-10">
 
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5E35B1]/20">
@@ -258,9 +259,8 @@ function About() {
 
               <p className="mt-5 font-['Poppins'] text-xl font-semibold leading-9 text-white">
                 To transform futures through kindness by strengthening the
-                conditions that enable children to learn, grow, thrive and
-                realise their full potential through education, family
-                empowerment and child protection.
+                conditions that enable children to learn, grow and thrive
+                through education, family empowerment and child protection.
               </p>
 
             </div>
@@ -271,77 +271,13 @@ function About() {
       </section>
 
 
-      {/* THE NEED */}
+      {/* ================= VALUES ================= */}
       <section className="ftf-section bg-[#050817]">
+
         <div className="ftf-container">
 
-          <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.8fr]">
+          <div className="max-w-2xl">
 
-            <div>
-
-              <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
-                The Need
-              </span>
-
-              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
-                Every child deserves an opportunity to reach their potential.
-              </h2>
-
-              <div className="mt-7 space-y-5 leading-8 text-[#AEB9CD]">
-
-                <p>
-                  Millions of children continue to face conditions that
-                  limit their ability to learn, grow, remain protected, and
-                  reach their full potential.
-                </p>
-
-                <p>
-                  Poverty, inadequate access to quality education, poor
-                  nutrition, violence, financial hardship, weak family
-                  support, and unsafe environments are interconnected
-                  challenges that can affect children's development.
-                </p>
-
-                <p>
-                  FTF believes these realities require an integrated response
-                  that addresses both children and the conditions surrounding
-                  them.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div className="rounded-[28px] border border-[#4DD0E1]/10 bg-[#0B1022] p-8">
-
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
-                <HeartHandshake className="h-7 w-7 text-[#4DD0E1]" />
-              </div>
-
-              <h3 className="mt-7 font-['Poppins'] text-2xl font-bold text-white">
-                Our Response
-              </h3>
-
-              <p className="mt-4 leading-7 text-[#AEB9CD]">
-                We seek to expand learning opportunities, strengthen
-                families and promote safe and protective environments for
-                children.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* CORE VALUES */}
-      <section className="ftf-section bg-[#0B1022]">
-        <div className="ftf-container">
-
-          <div className="max-w-3xl">
             <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
               What Guides Us
             </span>
@@ -351,13 +287,14 @@ function About() {
             </h2>
 
             <p className="mt-5 leading-7 text-[#AEB9CD]">
-              Our values shape how we serve, how we partner, and how we
-              manage the responsibility entrusted to us.
+              Our values shape how we serve, partner and manage the
+              responsibility entrusted to us.
             </p>
+
           </div>
 
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
             {values.map((value) => {
               const Icon = value.icon;
@@ -367,6 +304,7 @@ function About() {
                   key={value.title}
                   className="ftf-card p-6"
                 >
+
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#5E35B1]/20">
                     <Icon className="h-5 w-5 text-[#4DD0E1]" />
                   </div>
@@ -378,6 +316,7 @@ function About() {
                   <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
                     {value.text}
                   </p>
+
                 </div>
               );
             })}
@@ -388,148 +327,38 @@ function About() {
       </section>
 
 
-      {/* CORE OBJECTIVES */}
-      <section className="ftf-section bg-[#050817]">
-        <div className="ftf-container">
-
-          <div className="mx-auto max-w-3xl text-center">
-
-            <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
-              What We Seek To Achieve
-            </span>
-
-            <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
-              Our Core Objectives
-            </h2>
-
-          </div>
-
-
-          <div className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-2">
-
-            {objectives.map((objective, index) => (
-              <div
-                key={objective}
-                className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#1D293E] p-5"
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5E35B1]/20 font-['Poppins'] text-sm font-bold text-[#4DD0E1]">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-
-                <p className="font-['Poppins'] font-semibold text-white">
-                  {objective}
-                </p>
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* THEORY OF CHANGE */}
+      {/* ================= FOUNDER ================= */}
       <section className="ftf-section bg-[#0B1022]">
-        <div className="ftf-container">
 
-          <div className="mx-auto max-w-4xl">
-
-            <div className="text-center">
-
-              <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
-                Our Theory of Change
-              </span>
-
-              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
-                Strengthening the conditions around children.
-              </h2>
-
-            </div>
-
-
-            <div className="mt-12 rounded-[28px] border border-white/10 bg-[#1D293E] p-8 md:p-10">
-
-              <p className="text-lg leading-8 text-[#AEB9CD]">
-                FTF believes that every child has potential, but the
-                conditions in which a child grows can either enable or
-                constrain that potential.
-              </p>
-
-              <div className="mt-8 space-y-5">
-
-                <div className="rounded-2xl border border-white/10 bg-[#0B1022] p-6">
-                  <span className="text-sm font-bold uppercase tracking-wider text-[#4DD0E1]">
-                    When
-                  </span>
-
-                  <p className="mt-2 leading-7 text-white">
-                    children have access to meaningful learning
-                    opportunities, families and caregivers are strengthened,
-                    and children are supported by safe and protective
-                    environments...
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-[#0B1022] p-6">
-                  <span className="text-sm font-bold uppercase tracking-wider text-orange-400">
-                    Then
-                  </span>
-
-                  <p className="mt-2 leading-7 text-white">
-                    children are better positioned to develop their
-                    knowledge, skills, confidence, resilience, and
-                    capabilities...
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-[#4DD0E1]/20 bg-[#5E35B1]/10 p-6">
-                  <span className="text-sm font-bold uppercase tracking-wider text-[#4DD0E1]">
-                    Ultimately
-                  </span>
-
-                  <p className="mt-2 font-['Poppins'] text-lg font-semibold leading-8 text-white">
-                    stronger developmental outcomes, stronger families and
-                    communities, and greater opportunities for children to
-                    realise their potential.
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* FOUNDER */}
-      <section className="ftf-section bg-[#050817]">
         <div className="ftf-container">
 
           <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
 
-            {/* FOUNDER PHOTO */}
+            {/* Founder photo */}
             <div className="relative">
+
               <div className="relative mx-auto max-w-md overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#5E35B1] to-[#32156F] p-2 shadow-2xl">
 
                 <div className="overflow-hidden rounded-[26px] bg-[#11182B]">
+
                   <img
                     src="/founder/founder.jpeg"
                     alt="Sunday Caleb, Founder and President of Favored Tribe Foundation"
                     className="aspect-[4/5] h-full w-full object-cover object-center"
                   />
+
                 </div>
 
               </div>
 
-              <div className="absolute -bottom-5 -left-5 -z-0 h-24 w-24 rounded-full bg-[#4DD0E1]/10 blur-2xl" />
-              <div className="absolute -right-5 -top-5 -z-0 h-24 w-24 rounded-full bg-[#5E35B1]/20 blur-2xl" />
+              <div className="absolute -bottom-5 -left-5 h-24 w-24 rounded-full bg-[#4DD0E1]/10 blur-2xl" />
+
+              <div className="absolute -right-5 -top-5 h-24 w-24 rounded-full bg-[#5E35B1]/20 blur-2xl" />
+
             </div>
 
 
-            {/* FOUNDER CONTENT */}
+            {/* Founder content */}
             <div>
 
               <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
@@ -548,19 +377,18 @@ function About() {
 
                 <p>
                   Sunday Caleb is the Founder and President of Favored Tribe
-                  Foundation (FTF), a child-focused nonprofit organisation
-                  committed to transforming the lives of vulnerable children
-                  through its focus on child development.
+                  Foundation, a child-focused nonprofit organisation committed
+                  to transforming the lives of vulnerable children through its
+                  focus on child development.
                 </p>
 
                 <p>
-                  A graduate of Philosophy (B.Sc.), Caleb is an event
-                  planner, decorator, consultant, and founder of Prime Events
-                  Services. His professional journey includes serving as a
-                  Program Intern at Ovie Brume Foundation from 2019 to 2022,
-                  working in the hospitality industry as a chef, and
-                  undergoing training in International Human Resource
-                  Management (IHRM).
+                  A graduate of Philosophy (B.Sc.), Caleb is an event planner,
+                  decorator, consultant and founder of Prime Events Services.
+                  His professional journey includes serving as a Program Intern
+                  at Ovie Brume Foundation from 2019 to 2022, working in the
+                  hospitality industry and training in International Human
+                  Resource Management.
                 </p>
 
                 <p>
@@ -577,7 +405,7 @@ function About() {
               </div>
 
 
-              {/* VISION BEHIND FTF */}
+              {/* Vision behind FTF */}
               <div className="mt-8 rounded-2xl border border-white/10 bg-[#1D293E] p-6 md:p-7">
 
                 <h3 className="font-['Poppins'] text-xl font-bold text-white">
@@ -586,12 +414,13 @@ function About() {
 
                 <p className="mt-4 leading-7 text-[#AEB9CD]">
                   The vision for Favored Tribe Foundation was born during
-                  Caleb's NYSC service as a teacher at Ogoni central school,Amassoma, a public primary
-                  school in Bayelsa State. Witnessing children struggle with
-                  poverty, hunger, poor health, and limited access to basic
-                  educational needs inspired him to establish a platform that
-                  would provide lasting support and opportunities for
-                  vulnerable children beyond the classroom.
+                  Caleb's NYSC service as a teacher at Ogoni Central School,
+                  Amassoma, a public primary school in Bayelsa State.
+                  Witnessing children struggle with poverty, hunger, poor
+                  health and limited access to basic educational needs inspired
+                  him to establish a platform that would provide lasting
+                  support and opportunities for vulnerable children beyond the
+                  classroom.
                 </p>
 
               </div>
@@ -604,84 +433,49 @@ function About() {
       </section>
 
 
-      {/* FOUNDER MESSAGE */}
-      <section className="ftf-section bg-[#0B1022]">
-        <div className="ftf-container">
-
-          <div className="mx-auto max-w-4xl">
-
-            <div className="rounded-[28px] border border-white/10 bg-[#1D293E] p-8 md:p-12">
-
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5E35B1]/20 text-3xl text-[#4DD0E1]">
-                “
-              </div>
-
-              <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
-                A Message from the Founder
-              </span>
-
-              <blockquote className="mt-6 font-['Poppins'] text-xl font-medium leading-9 text-white md:text-2xl md:leading-10">
-                “Every child deserves the opportunity to learn, grow, and
-                achieve their full potential. At Favored Tribe Foundation,
-                we are committed to creating lasting change by giving
-                vulnerable children hope, opportunity, and a brighter
-                future. Together with our partners, donors, and volunteers,
-                we can transform lives—one child at a time.”
-              </blockquote>
-
-              <div className="mt-8 border-t border-white/10 pt-6">
-
-                <p className="font-['Poppins'] font-bold text-white">
-                  Sunday Caleb
-                </p>
-
-                <p className="mt-1 text-sm text-[#4DD0E1]">
-                  Founder & President, Favored Tribe Foundation
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* CTA */}
+      {/* ================= CTA ================= */}
       <section className="ftf-section bg-[#050817]">
+
         <div className="ftf-container">
 
-          <div className="overflow-hidden rounded-[32px] border border-[#4DD0E1]/10 bg-gradient-to-br from-[#1D293E] to-[#11182B] p-8 text-center md:p-12">
+          <div className="relative overflow-hidden rounded-[32px] border border-[#4DD0E1]/10 bg-gradient-to-br from-[#1D293E] to-[#11182B] p-8 text-center md:p-12">
 
-            <h2 className="font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
-              Help us transform futures through kindness.
-            </h2>
+            <div className="relative z-10">
 
-            <p className="mx-auto mt-5 max-w-2xl leading-7 text-[#AEB9CD]">
-              Whether you volunteer, partner, donate, or help spread the
-              word, your contribution can help create stronger conditions
-              for children and families to thrive.
-            </p>
+              <h2 className="font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
+                Help us transform futures through kindness.
+              </h2>
 
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <p className="mx-auto mt-5 max-w-2xl leading-7 text-[#AEB9CD]">
+                Whether you volunteer, partner, donate or help spread the word,
+                your contribution can help create stronger conditions for
+                children and families to thrive.
+              </p>
 
-              <Link
-                to="/get-involved"
-                className="ftf-btn-primary"
-              >
-                Get Involved
-              </Link>
+              <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
 
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 font-['Poppins'] font-bold text-white transition hover:bg-white/5"
-              >
-                Contact Us
-              </Link>
+                <Link
+                  to="/get-involved"
+                  className="ftf-btn-primary"
+                >
+                  Get Involved
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 font-['Poppins'] font-bold text-white transition hover:bg-white/5"
+                >
+                  Contact Us
+                </Link>
+
+              </div>
 
             </div>
+
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#4DD0E1]/10 blur-[100px]" />
+
+            <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#5E35B1]/20 blur-[100px]" />
 
           </div>
 
@@ -693,3 +487,4 @@ function About() {
 }
 
 export default About;
+
