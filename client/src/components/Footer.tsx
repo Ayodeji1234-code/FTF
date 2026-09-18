@@ -1,13 +1,13 @@
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { contactInfo } from "../data/contact";
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#050817]">
-      {/* MAIN FOOTER */}
-      <div className="ftf-container py-14 md:py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_0.8fr_1fr]">
+      <div className="ftf-container py-12 md:py-14">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_0.8fr_1fr]">
           {/* BRAND */}
           <div>
             <Link
@@ -18,22 +18,14 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="Favored Tribe Foundation"
-                className="h-20 w-auto max-w-[240px] object-contain"
+                className="h-16 w-auto max-w-[210px] object-contain"
               />
             </Link>
 
-            <p className="mt-5 max-w-md text-sm leading-7 text-[#AEB8CA]">
+            <p className="mt-4 max-w-md text-sm leading-7 text-[#AEB8CA]">
               Transforming futures through kindness by strengthening the
               conditions that enable children and families to thrive.
             </p>
-
-            <Link
-              to="/get-involved"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1] transition hover:text-white"
-            >
-              Be part of the work
-              <ArrowRight size={16} />
-            </Link>
           </div>
 
           {/* EXPLORE */}
@@ -171,21 +163,13 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-
-            <Link
-              to="/contact"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1] transition hover:text-white"
-            >
-              Contact us
-              <ArrowRight size={16} />
-            </Link>
           </div>
         </div>
       </div>
 
       {/* BOTTOM FOOTER */}
       <div className="border-t border-white/10">
-        <div className="ftf-container flex flex-col gap-3 py-5 text-sm md:flex-row md:items-center md:justify-between">
+        <div className="ftf-container flex flex-col gap-2 py-5 text-sm md:flex-row md:items-center md:justify-between">
           <p className="text-[#718097]">
             © {new Date().getFullYear()} Favored Tribe Foundation. All
             rights reserved.
@@ -199,3 +183,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+

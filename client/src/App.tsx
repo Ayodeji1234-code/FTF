@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import {
   BrowserRouter,
@@ -54,8 +55,7 @@ function NotFound() {
             </h1>
 
             <p className="mt-5 text-lg leading-8 text-[#AEB9CD]">
-              The page you're looking for doesn't exist or may have
-              moved.
+              The page you're looking for doesn't exist or may have moved.
             </p>
 
             <Link
@@ -102,3 +102,4 @@ function App() {
 }
 
 export default App;
+

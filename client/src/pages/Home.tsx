@@ -25,6 +25,37 @@ const pillars = [
   },
 ];
 
+const waysToWorkWithUs = [
+  {
+    icon: Users,
+    title: "Partnerships",
+    text: "Collaborate with us on programs, initiatives and community development efforts.",
+    path: "/contact",
+    action: "Contact Us",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Sponsorships",
+    text: "Support children and families through sponsorship opportunities that create lasting impact.",
+    path: "/contact",
+    action: "Contact Us",
+  },
+  {
+    icon: Users,
+    title: "Volunteering",
+    text: "Give your time, skills and experience to support our work and community initiatives.",
+    path: "/volunteer",
+    action: "Become a Volunteer",
+  },
+  {
+    icon: BookOpen,
+    title: "Support",
+    text: "Contribute financial, material or other forms of support to help strengthen our programs.",
+    path: "/contact",
+    action: "Contact Us",
+  },
+];
+
 export default function Home() {
   return (
     <main className="ftf-page">
@@ -60,6 +91,7 @@ export default function Home() {
                 <span className="font-['Poppins'] text-[10px] font-extrabold leading-tight tracking-[0.06em] text-[#4DD0E1] sm:text-sm sm:tracking-wide md:text-base">
                   FAVORED TRIBE FOUNDATION
                 </span>
+
               </div>
 
               {/* Main heading */}
@@ -79,7 +111,7 @@ export default function Home() {
                 futures.
               </h1>
 
-              {/* Shorter description */}
+              {/* Description */}
               <p className="mt-6 max-w-2xl text-base leading-7 text-[#AEB9CD] sm:mt-7 sm:text-lg sm:leading-8 md:text-xl">
                 We strengthen the conditions that help vulnerable and
                 disadvantaged children learn, grow and thrive.
@@ -89,10 +121,10 @@ export default function Home() {
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
 
                 <Link
-                  to="/get-involved"
+                  to="/contact"
                   className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#6735C5] px-7 py-3.5 font-['Poppins'] font-bold text-white shadow-[0_10px_30px_rgba(103,53,197,0.25)] transition duration-300 hover:-translate-y-1 hover:bg-[#7545D5] hover:shadow-[0_15px_40px_rgba(103,53,197,0.35)] sm:px-8 sm:py-4"
                 >
-                  Get Involved
+                  Contact Us
 
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
@@ -115,17 +147,8 @@ export default function Home() {
 
                 <div className="rounded-[22px] border border-white/5 bg-[#080D1E] p-6 sm:rounded-[30px] sm:p-9">
 
-                  {/* Logo */}
-                  <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-[#5E35B1]/20 ring-1 ring-[#4DD0E1]/10 sm:h-16 sm:w-16">
-                    <img
-                      src="/logo.png"
-                      alt="Favored Tribe Foundation logo"
-                      className="h-12 w-12 object-contain brightness-125 contrast-110 sm:h-14 sm:w-14"
-                    />
-                  </div>
-
                   {/* Label */}
-                  <p className="mt-6 font-['Poppins'] text-xs font-bold tracking-[0.2em] text-[#4DD0E1] sm:mt-8 sm:text-sm sm:tracking-[0.28em]">
+                  <p className="font-['Poppins'] text-xs font-bold tracking-[0.2em] text-[#4DD0E1] sm:text-sm sm:tracking-[0.28em]">
                     OUR PURPOSE
                   </p>
 
@@ -134,7 +157,7 @@ export default function Home() {
                     Every child deserves the opportunity to thrive.
                   </h2>
 
-                  {/* Short purpose */}
+                  {/* Purpose */}
                   <p className="mt-4 text-sm leading-6 text-[#AEB9CD] sm:text-base sm:leading-7">
                     We work with children, families and communities to create
                     stronger foundations for a better future.
@@ -166,7 +189,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* ================= WHAT WE FOCUS ON ================= */}
       <section className="ftf-section">
 
@@ -189,7 +211,6 @@ export default function Home() {
             </p>
 
           </div>
-
 
           {/* Pillars */}
           <div className="mt-10 grid gap-5 sm:mt-12 md:grid-cols-3">
@@ -232,54 +253,89 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* ================= FINAL CTA ================= */}
+      {/* ================= WAYS TO WORK WITH US ================= */}
       <section className="border-t border-white/5 bg-[#091023]">
 
         <div className="ftf-container py-14 sm:py-20">
 
-          <div className="relative overflow-hidden rounded-[28px] border border-white/5 bg-gradient-to-br from-[#5E35B1]/20 via-[#111A2D] to-[#4DD0E1]/10 p-6 sm:rounded-[32px] sm:p-14">
+          {/* Section heading */}
+          <div className="max-w-2xl">
 
-            <div className="relative z-10 max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+              Work With Us
+            </p>
 
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-                Join the Movement
-              </p>
+            <h2 className="mt-4 font-['Poppins'] text-3xl font-bold text-white md:text-5xl">
+              There are many ways to make a difference.
+            </h2>
 
-              <h2 className="mt-4 font-['Poppins'] text-3xl font-bold text-white md:text-5xl">
-                Together, we can transform futures.
-              </h2>
+            <p className="mt-5 text-base leading-7 text-[#AEB9CD] sm:text-lg sm:leading-8">
+              Whether through partnership, sponsorship, volunteering or direct
+              support, your contribution can help create better opportunities
+              for children, families and communities.
+            </p>
 
-              <p className="mt-5 max-w-2xl text-base leading-7 text-[#AEB9CD] sm:text-lg sm:leading-8">
-                Lasting change begins with collective action. Find a way to
-                support children and families through Favored Tribe Foundation.
-              </p>
+          </div>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          {/* Ways */}
+          <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
 
+            {waysToWorkWithUs.map((way) => {
+              const Icon = way.icon;
+
+              return (
                 <Link
-                  to="/get-involved"
-                  className="ftf-btn-primary"
+                  key={way.title}
+                  to={way.path}
+                  className="ftf-card group p-6 transition duration-300 hover:-translate-y-1 hover:border-[#4DD0E1]/20 sm:p-7"
                 >
-                  Get Involved
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
 
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 px-7 py-3.5 font-['Poppins'] font-bold text-white transition hover:border-[#4DD0E1]/40 hover:bg-white/5"
-                >
-                  Contact Us
-                </Link>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#4DD0E1]/10">
+                    <Icon className="h-6 w-6 text-[#4DD0E1]" />
+                  </div>
 
-              </div>
+                  <h3 className="mt-5 font-['Poppins'] text-xl font-bold text-white">
+                    {way.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
+                    {way.text}
+                  </p>
+
+                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1] transition-all group-hover:gap-3">
+                    {way.action}
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+
+                </Link>
+              );
+            })}
+
+          </div>
+
+          {/* Contact CTA */}
+          <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-[28px] border border-white/5 bg-[#111A2D] p-6 sm:mt-12 sm:flex-row sm:items-center sm:p-8">
+
+            <div>
+
+              <h3 className="font-['Poppins'] text-xl font-bold text-white sm:text-2xl">
+                Have another way you'd like to help?
+              </h3>
+
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#AEB9CD] sm:text-base">
+                Tell us what you have in mind and let's explore how we can
+                work together.
+              </p>
 
             </div>
 
-            {/* Decorative glow */}
-            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#4DD0E1]/10 blur-[100px]" />
-
-            <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#5E35B1]/20 blur-[100px]" />
+            <Link
+              to="/contact"
+              className="ftf-btn-primary shrink-0"
+            >
+              Contact Us
+              <ArrowRight className="h-5 w-5" />
+            </Link>
 
           </div>
 

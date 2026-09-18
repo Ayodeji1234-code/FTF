@@ -1,7 +1,7 @@
+
 import { useState } from "react";
 import type { FormEvent } from "react";
 import {
-  ArrowRight,
   CheckCircle2,
   Mail,
   MapPin,
@@ -86,25 +86,24 @@ export default function Contact() {
   return (
     <main className="ftf-page">
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(94,53,177,0.22),transparent_35%),radial-gradient(circle_at_85%_70%,rgba(77,208,225,0.10),transparent_30%)]" />
+      <section className="relative overflow-hidden bg-[#050817]">
+        <div className="absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#5E35B1]/20 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-[#4DD0E1]/10 blur-3xl" />
 
         <div className="ftf-container relative py-24 md:py-32">
-          <div className="max-w-4xl ftf-fade-up">
-            <p className="mb-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.22em] text-[#4DD0E1]">
+          <div className="max-w-3xl ftf-fade-up">
+            <p className="inline-flex items-center gap-2 font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
               <MessageCircle className="h-4 w-4" />
               Contact Us
             </p>
 
-            <h1 className="text-4xl font-extrabold leading-tight text-white md:text-6xl">
+            <h1 className="mt-5 font-['Poppins'] text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
               We would love to
-              <span className="block text-[#4DD0E1]">
-                hear from you.
-              </span>
+              <span className="block text-[#4DD0E1]">hear from you.</span>
             </h1>
 
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-[#AEB9CD] md:text-xl">
-              Whether you want to support our work, volunteer, partner with us
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#AEB9CD] md:text-xl">
+              Whether you want to support our work, volunteer, partner with us,
               or simply learn more, we would be glad to hear from you.
             </p>
           </div>
@@ -112,22 +111,23 @@ export default function Contact() {
       </section>
 
       {/* CONTACT + FORM */}
-      <section className="ftf-section">
+      <section className="ftf-section bg-[#0B1022]">
         <div className="ftf-container">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             {/* CONTACT DETAILS */}
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+              <p className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
                 Get in touch
               </p>
 
-              <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
+              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
                 Start a conversation.
               </h2>
 
               <p className="mt-5 max-w-xl leading-7 text-[#AEB9CD]">
                 Reach out to Favored Tribe Foundation and let us know how we
-                can connect, collaborate or support your interest in our work.
+                can connect, collaborate, or support your interest in our
+                work.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -200,7 +200,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* RESPONSE NOTE */}
               <div className="mt-6 rounded-2xl border border-[#4DD0E1]/10 bg-[#4DD0E1]/5 p-5">
                 <p className="text-sm leading-6 text-[#D8DCEF]">
                   Send us a message and our team will get back to you as soon
@@ -241,11 +240,11 @@ export default function Contact() {
             {/* FORM */}
             <div className="ftf-card p-6 md:p-8 lg:p-10">
               <div className="mb-7">
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+                <p className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
                   Send a message
                 </p>
 
-                <h2 className="mt-3 text-2xl font-bold text-white md:text-3xl">
+                <h2 className="mt-3 font-['Poppins'] text-2xl font-extrabold text-white md:text-3xl">
                   How can we help?
                 </h2>
 
@@ -272,8 +271,9 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    autoComplete="name"
                     placeholder="Enter your full name"
-                    className="w-full rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
+                    className="w-full rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
@@ -293,8 +293,9 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    autoComplete="email"
                     placeholder="you@example.com"
-                    className="w-full rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
+                    className="w-full rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
@@ -313,8 +314,9 @@ export default function Contact() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
+                    autoComplete="tel"
                     placeholder="0800 000 0000"
-                    className="w-full rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
+                    className="w-full rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
@@ -335,20 +337,25 @@ export default function Contact() {
                     required
                     rows={6}
                     placeholder="Tell us how we can help or how you would like to work with us..."
-                    className="w-full resize-none rounded-2xl border border-white/10 bg-[#111A2D] px-5 py-4 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
+                    className="w-full resize-none rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#6F7B91] focus:border-[#4DD0E1]/60 focus:ring-2 focus:ring-[#4DD0E1]/10"
                   />
                 </div>
 
                 {/* STATUS */}
                 {status && (
                   <div
-                    className={`flex items-start gap-3 rounded-2xl border px-4 py-4 text-sm ${
+                    role="alert"
+                    className={`flex items-start gap-3 rounded-xl border px-4 py-4 text-sm ${
                       status.toLowerCase().includes("success")
                         ? "border-[#4DD0E1]/20 bg-[#4DD0E1]/10 text-[#9BE8F2]"
                         : "border-red-400/20 bg-red-400/10 text-red-200"
                     }`}
                   >
-                    <CheckCircle2 className="mt-0.5 shrink-0" size={18} />
+                    <CheckCircle2
+                      className="mt-0.5 shrink-0"
+                      size={18}
+                    />
+
                     <p>{status}</p>
                   </div>
                 )}
@@ -357,7 +364,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="ftf-btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
+                  className="ftf-btn-primary w-full justify-center disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? (
                     <>
@@ -377,111 +384,26 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* QUICK LINKS */}
-      <section className="border-y border-white/5 bg-[#091023]">
-        <div className="ftf-container ftf-section">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-              Explore FTF
+      {/* CLOSING */}
+      <section className="ftf-section bg-[#050817]">
+        <div className="ftf-container">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+              Stay connected
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-              Looking for something else?
+            <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
+              Every conversation can be a starting point.
             </h2>
 
-            <p className="mt-4 text-lg leading-7 text-[#AEB9CD]">
-              Explore other ways to connect with our work.
+            <p className="mt-4 leading-7 text-[#AEB9CD]">
+              Whether you are looking to volunteer, partner, support our work,
+              or learn more about FTF, we are always open to hearing from you.
             </p>
           </div>
-
-          <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
-            <a
-              href="/donate"
-              className="group ftf-card p-6 transition hover:-translate-y-1 hover:border-[#4DD0E1]/30"
-            >
-              <h3 className="text-xl font-bold text-white">
-                Support Our Work
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
-                Learn more about supporting children and families.
-              </p>
-
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1]">
-                Donate
-                <ArrowRight
-                  size={16}
-                  className="transition group-hover:translate-x-1"
-                />
-              </span>
-            </a>
-
-            <a
-              href="/volunteer"
-              className="group ftf-card p-6 transition hover:-translate-y-1 hover:border-[#4DD0E1]/30"
-            >
-              <h3 className="text-xl font-bold text-white">
-                Become a Volunteer
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
-                Give your time and skills to support our mission.
-              </p>
-
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1]">
-                Volunteer
-                <ArrowRight
-                  size={16}
-                  className="transition group-hover:translate-x-1"
-                />
-              </span>
-            </a>
-
-            <a
-              href="/programs"
-              className="group ftf-card p-6 transition hover:-translate-y-1 hover:border-[#4DD0E1]/30"
-            >
-              <h3 className="text-xl font-bold text-white">
-                Explore Our Programmes
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-[#AEB9CD]">
-                Discover the areas that shape our work.
-              </p>
-
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4DD0E1]">
-                View programmes
-                <ArrowRight
-                  size={16}
-                  className="transition group-hover:translate-x-1"
-                />
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="border-t border-white/5 bg-[#050817]">
-        <div className="ftf-container py-20 text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-            Favored Tribe Foundation
-          </p>
-
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold leading-tight text-white md:text-5xl">
-            Together, we can help create futures filled with opportunity.
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#AEB9CD]">
-            Every child. Every family. Every future.
-          </p>
-
-          <a href="/get-involved" className="ftf-btn-primary mt-8">
-            Get Involved
-            <ArrowRight className="h-5 w-5" />
-          </a>
         </div>
       </section>
     </main>
   );
 }
+

@@ -4,11 +4,8 @@ import {
   Target,
   Heart,
   HeartHandshake,
-  BookOpen,
-  Users,
-  ShieldCheck,
   Handshake,
-  Lightbulb,
+  ShieldCheck,
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -16,33 +13,23 @@ import { Link } from "react-router-dom";
 const commitments = [
   {
     icon: Heart,
-    title: "Children at the heart",
+    title: "Children first",
     text: "We place the well-being, dignity, safety, and potential of children at the centre of our work.",
   },
   {
     icon: ShieldCheck,
-    title: "Protection from harm",
-    text: "We work toward safe and protective environments where children can learn, grow, and thrive.",
-  },
-  {
-    icon: Users,
-    title: "Family and community",
-    text: "We recognise the important role of families, caregivers, and communities in children's development.",
+    title: "Protection and dignity",
+    text: "We promote safe and supportive environments where children can learn, grow, and thrive.",
   },
   {
     icon: Handshake,
-    title: "Partnership",
-    text: "We believe lasting change is strengthened through collaboration and shared responsibility.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Learning and improvement",
-    text: "We learn from experience, use evidence, and continuously improve our work.",
+    title: "Collaboration",
+    text: "We believe lasting change is strengthened through partnership and shared responsibility.",
   },
   {
     icon: Target,
-    title: "Responsible action",
-    text: "We are committed to accountability, responsible stewardship, and meaningful results.",
+    title: "Responsibility",
+    text: "We are committed to responsible action, accountability, and meaningful results.",
   },
 ];
 
@@ -55,8 +42,8 @@ export default function Mission() {
         <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-[#4DD0E1]/10 blur-3xl" />
 
         <div className="ftf-container relative py-24 md:py-32">
-          <div className="max-w-4xl">
-            <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
+          <div className="max-w-4xl ftf-fade-up">
+            <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
               Our Mission & Vision
             </span>
 
@@ -67,8 +54,7 @@ export default function Mission() {
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[#AEB9CD] md:text-xl">
               We believe every child should have the opportunity to learn,
-              grow, thrive, and realise their full potential — regardless of
-              the circumstances into which they are born.
+              grow, thrive, and realise their full potential.
             </p>
           </div>
         </div>
@@ -78,7 +64,6 @@ export default function Mission() {
       <section className="ftf-section bg-[#0B1022]">
         <div className="ftf-container">
           <div className="grid gap-6 lg:grid-cols-2">
-            {/* VISION */}
             <div className="ftf-card p-8 md:p-10">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4DD0E1]/10">
                 <Eye className="h-6 w-6 text-[#4DD0E1]" />
@@ -98,7 +83,6 @@ export default function Mission() {
               </p>
             </div>
 
-            {/* MISSION */}
             <div className="ftf-card p-8 md:p-10">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#5E35B1]/20">
                 <Target className="h-6 w-6 text-[#B9A4FF]" />
@@ -125,9 +109,9 @@ export default function Mission() {
       {/* WHAT GUIDES OUR WORK */}
       <section className="ftf-section bg-[#050817]">
         <div className="ftf-container">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
-              <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
+              <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
                 What Guides Our Work
               </span>
 
@@ -136,71 +120,48 @@ export default function Mission() {
               </h2>
 
               <p className="mt-5 leading-8 text-[#AEB9CD]">
-                We seek to reduce barriers, strengthen the environments around
-                children, and expand the opportunities available to them.
+                We seek to reduce barriers and strengthen the environments
+                around children so they have greater opportunities to learn,
+                grow, and thrive.
               </p>
 
               <p className="mt-4 leading-8 text-[#AEB9CD]">
-                Our work is centred on three connected foundations:
-                <span className="font-semibold text-white">
-                  {" "}
-                  education, family empowerment, and child protection.
-                </span>
+                This means looking beyond individual needs and considering the
+                families, communities, and systems that shape children's lives.
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-[#1D293E] p-6 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#4DD0E1]/10">
-                  <BookOpen className="h-6 w-6 text-[#4DD0E1]" />
+            <div className="rounded-[28px] border border-white/10 bg-[#1D293E] p-7 md:p-9">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4DD0E1]/10">
+                  <Heart className="h-6 w-6 text-[#4DD0E1]" />
                 </div>
 
-                <h3 className="mt-5 font-['Poppins'] font-bold text-white">
-                  Education
-                </h3>
+                <div>
+                  <p className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.15em] text-[#4DD0E1]">
+                    Our belief
+                  </p>
 
-                <p className="mt-2 text-sm leading-6 text-[#AEB9CD]">
-                  Opportunities to learn and develop.
-                </p>
-              </div>
+                  <h3 className="mt-3 font-['Poppins'] text-2xl font-bold leading-tight text-white">
+                    Every child deserves a fair opportunity to thrive.
+                  </h3>
 
-              <div className="rounded-2xl border border-white/10 bg-[#1D293E] p-6 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#5E35B1]/20">
-                  <Users className="h-6 w-6 text-[#B9A4FF]" />
+                  <p className="mt-4 leading-7 text-[#AEB9CD]">
+                    We work toward a future where circumstances do not limit a
+                    child's opportunity to reach their potential.
+                  </p>
                 </div>
-
-                <h3 className="mt-5 font-['Poppins'] font-bold text-white">
-                  Family
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-[#AEB9CD]">
-                  Stronger families and caregivers.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-[#1D293E] p-6 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#4DD0E1]/10">
-                  <ShieldCheck className="h-6 w-6 text-[#4DD0E1]" />
-                </div>
-
-                <h3 className="mt-5 font-['Poppins'] font-bold text-white">
-                  Protection
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-[#AEB9CD]">
-                  Safer environments for children.
-                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* OUR COMMITMENTS */}
+      {/* COMMITMENTS */}
       <section className="ftf-section bg-[#0B1022]">
         <div className="ftf-container">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-orange-400">
+          <div className="max-w-2xl">
+            <span className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
               Our Commitments
             </span>
 
@@ -209,12 +170,12 @@ export default function Mission() {
             </h2>
 
             <p className="mt-4 leading-7 text-[#AEB9CD]">
-              Our mission is not only about what we do, but also about the
-              responsibility and care with which we do it.
+              Our purpose is reflected not only in what we do, but in how we
+              carry out the work.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {commitments.map((item) => {
               const Icon = item.icon;
 
@@ -241,55 +202,32 @@ export default function Mission() {
         </div>
       </section>
 
-      {/* SIMPLE STATEMENT */}
+      {/* CLOSING */}
       <section className="ftf-section bg-[#050817]">
         <div className="ftf-container">
-          <div className="mx-auto max-w-4xl text-center">
-            <Heart className="mx-auto h-10 w-10 text-[#4DD0E1]" />
+          <div className="mx-auto max-w-3xl text-center">
+            <HeartHandshake className="mx-auto h-10 w-10 text-[#4DD0E1]" />
 
             <h2 className="mt-6 font-['Poppins'] text-3xl font-extrabold leading-tight text-white md:text-4xl">
-              Every child deserves the opportunity to learn, grow, and thrive.
+              Turning purpose into action.
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-[#AEB9CD]">
-              We are committed to helping create the conditions that make that
-              opportunity possible.
+              Our mission guides the work we do today and the organisation we
+              are building for tomorrow.
             </p>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="ftf-section bg-[#0B1022]">
-        <div className="ftf-container">
-          <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-[#1D293E] to-[#11182B] p-8 md:p-12">
-            <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
-              <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#4DD0E1]/10">
-                  <HeartHandshake className="h-6 w-6 text-[#4DD0E1]" />
-                </div>
-
-                <h2 className="mt-6 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
-                  Help us turn purpose into action.
-                </h2>
-
-                <p className="mt-4 max-w-2xl leading-7 text-[#AEB9CD]">
-                  Whether through partnership, volunteering, advocacy, or
-                  support, there is a place for you in the work.
-                </p>
-              </div>
-
-              <Link
-                to="/get-involved"
-                className="ftf-btn-primary whitespace-nowrap"
-              >
-                Get Involved
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+            <Link
+              to="/about"
+              className="ftf-btn-primary mt-8"
+            >
+              Learn About Us
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>
     </main>
   );
 }
+

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -25,36 +26,25 @@ export default function Navbar() {
   const closeMobile = () => {
     setMobileOpen(false);
     setMoreOpen(false);
+    document.body.style.overflow = "";
+  };
+
+  const toggleMobile = () => {
+    setMobileOpen((value) => {
+      const newValue = !value;
+
+      document.body.style.overflow = newValue ? "hidden" : "";
+
+      return newValue;
+    });
   };
 
   return (
     <header className="relative z-50">
+      {/* TOP NAVBAR */}
       <div className="border-b border-white/10 bg-[#050817]/95 backdrop-blur-xl">
         <div className="ftf-container">
-          {/* DESKTOP / TOP BAR */}
-          <div className="flex h-[72px] items-center justify-between">
-            {/* LOGO */}
-            <Link
-              to="/"
-              className="flex items-center gap-3"
-              onClick={closeMobile}
-            >
-              <img
-                src="/logo.png"
-                alt="Favored Tribe Foundation"
-                className="h-10 w-auto object-contain"
-              />
-
-              <div className="hidden sm:block">
-                <p className="text-sm font-bold leading-tight text-white">
-                  Favored Tribe
-                </p>
-                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-[#71809A]">
-                  Foundation
-                </p>
-              </div>
-            </Link>
-
+          <div className="flex h-[72px] items-center justify-end">
             {/* DESKTOP NAVIGATION */}
             <div className="hidden items-center lg:flex">
               <nav className="flex items-center gap-1">
@@ -87,6 +77,7 @@ export default function Navbar() {
                     }`}
                   >
                     More
+
                     <ChevronDown
                       size={15}
                       className={`transition-transform duration-200 ${
@@ -118,7 +109,7 @@ export default function Navbar() {
                 </div>
               </nav>
 
-              {/* CTA */}
+              {/* DESKTOP CTA */}
               <Link
                 to="/donate"
                 className="ftf-btn-primary ml-4 px-5 py-2.5 text-sm"
@@ -130,7 +121,7 @@ export default function Navbar() {
             {/* MOBILE MENU BUTTON */}
             <button
               type="button"
-              onClick={() => setMobileOpen((value) => !value)}
+              onClick={toggleMobile}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 lg:hidden"
@@ -138,18 +129,65 @@ export default function Navbar() {
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
+        </div>
+      </div>
 
-          {/* MOBILE NAVIGATION */}
-          {mobileOpen && (
-            <div className="border-t border-white/10 py-5 lg:hidden">
-              <nav className="space-y-1">
-                {navLinks.map((link) => (
+      {/* FULL-SCREEN MOBILE MENU */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[100] flex h-screen flex-col overflow-y-auto bg-[#050817] lg:hidden">
+          {/* MOBILE MENU HEADER */}
+          <div className="border-b border-white/10">
+            <div className="ftf-container">
+              <div className="flex h-[72px] items-center justify-between">
+                <span className="text-sm font-semibold uppercase tracking-[0.18em] text-[#71809A]">
+                  Menu
+                </span>
+
+                <button
+                  type="button"
+                  onClick={closeMobile}
+                  aria-label="Close menu"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+                >
+                  <X size={22} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* MOBILE LINKS */}
+          <div className="ftf-container flex-1 py-8">
+            <nav className="space-y-1">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  onClick={closeMobile}
+                  className={({ isActive }) =>
+                    `block rounded-2xl px-5 py-4 text-base font-semibold transition ${
+                      isActive
+                        ? "bg-[#5E35B1]/20 text-[#4DD0E1]"
+                        : "text-[#C2CADA] hover:bg-white/5 hover:text-white"
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ))}
+
+              {/* MORE LINKS */}
+              <div className="pt-7">
+                <p className="px-5 pb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#6F7B91]">
+                  More
+                </p>
+
+                {moreLinks.map((link) => (
                   <NavLink
                     key={link.path}
                     to={link.path}
                     onClick={closeMobile}
                     className={({ isActive }) =>
-                      `block rounded-xl px-4 py-3.5 text-sm font-semibold transition ${
+                      `block rounded-2xl px-5 py-4 text-base font-semibold transition ${
                         isActive
                           ? "bg-[#5E35B1]/20 text-[#4DD0E1]"
                           : "text-[#C2CADA] hover:bg-white/5 hover:text-white"
@@ -159,46 +197,23 @@ export default function Navbar() {
                     {link.name}
                   </NavLink>
                 ))}
+              </div>
+            </nav>
 
-                {/* MOBILE MORE */}
-                <div className="pt-4">
-                  <p className="px-4 pb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#6F7B91]">
-                    More
-                  </p>
-
-                  {moreLinks.map((link) => (
-                    <NavLink
-                      key={link.path}
-                      to={link.path}
-                      onClick={closeMobile}
-                      className={({ isActive }) =>
-                        `block rounded-xl px-4 py-3.5 text-sm font-semibold transition ${
-                          isActive
-                            ? "bg-[#5E35B1]/20 text-[#4DD0E1]"
-                            : "text-[#C2CADA] hover:bg-white/5 hover:text-white"
-                        }`
-                      }
-                    >
-                      {link.name}
-                    </NavLink>
-                  ))}
-                </div>
-
-                {/* MOBILE CTA */}
-                <div className="pt-4">
-                  <Link
-                    to="/donate"
-                    onClick={closeMobile}
-                    className="ftf-btn-primary w-full"
-                  >
-                    Support Us
-                  </Link>
-                </div>
-              </nav>
+            {/* MOBILE CTA */}
+            <div className="mt-8">
+              <Link
+                to="/donate"
+                onClick={closeMobile}
+                className="ftf-btn-primary flex w-full items-center justify-center"
+              >
+                Support Us
+              </Link>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }
+

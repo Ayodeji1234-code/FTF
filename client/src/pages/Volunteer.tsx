@@ -1,55 +1,13 @@
+
 import { useState, type FormEvent, type ChangeEvent } from "react";
 import {
   Heart,
-  Users,
-  GraduationCap,
-  HandHeart,
-  ShieldCheck,
   ArrowRight,
   CheckCircle2,
   AlertCircle,
   Send,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const serviceAreas = [
-  {
-    icon: GraduationCap,
-    title: "Education & Learning",
-    description:
-      "Help create meaningful learning opportunities and support children's participation in education.",
-  },
-  {
-    icon: Users,
-    title: "Family Empowerment",
-    description:
-      "Support families and caregivers through knowledge, encouragement, and practical assistance.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Child Protection",
-    description:
-      "Support efforts that promote children's safety, dignity, rights, and well-being.",
-  },
-  {
-    icon: HandHeart,
-    title: "Community Support",
-    description:
-      "Work alongside communities and partners to create stronger environments for children.",
-  },
-  {
-    icon: Heart,
-    title: "Events & Outreach",
-    description:
-      "Support outreach activities, awareness campaigns, events, and community initiatives.",
-  },
-  {
-    icon: Users,
-    title: "Skills & Professional Support",
-    description:
-      "Share your professional knowledge, technical skills, creativity, or experience.",
-  },
-];
 
 const principles = [
   "Respect for children, families, and communities",
@@ -152,13 +110,10 @@ export default function Volunteer() {
 
   return (
     <main className="ftf-page">
-      {/* =========================================================
-          HERO
-      ========================================================= */}
-      <section className="relative overflow-hidden border-b border-white/5">
-        <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-[#5e35b1]/20 blur-3xl" />
-
-        <div className="absolute right-0 top-40 h-72 w-72 rounded-full bg-[#4DD0E1]/10 blur-3xl" />
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#050817]">
+        <div className="absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#5E35B1]/20 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-[#4DD0E1]/10 blur-3xl" />
 
         <div className="ftf-container relative py-24 md:py-32">
           <div className="max-w-3xl ftf-fade-up">
@@ -167,7 +122,7 @@ export default function Volunteer() {
               Volunteer with FTF
             </span>
 
-            <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
+            <h1 className="mt-6 font-['Poppins'] text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
               Give your time.
               <span className="block text-[#4DD0E1]">
                 Help transform futures.
@@ -196,72 +151,63 @@ export default function Volunteer() {
         </div>
       </section>
 
-      {/* =========================================================
-          WAYS TO VOLUNTEER
-      ========================================================= */}
-      <section className="ftf-section">
+      {/* HOW YOU CAN HELP */}
+      <section className="ftf-section bg-[#0B1022]">
         <div className="ftf-container">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-              Ways to contribute
-            </p>
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <p className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+                Your contribution
+              </p>
 
-            <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-              Find a way to serve that fits your strengths.
-            </h2>
+              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold leading-tight text-white md:text-4xl">
+                There is more than one way to volunteer.
+              </h2>
+            </div>
 
-            <p className="mt-5 leading-7 text-[#AEB9CD]">
-              Volunteers can contribute across different areas of our work as
-              programmes and partnerships continue to grow.
-            </p>
-          </div>
+            <div className="space-y-5 text-base leading-8 text-[#AEB9CD]">
+              <p>
+                Volunteers can support Favored Tribe Foundation through their
+                time, professional skills, creativity, experience, or
+                participation in community activities.
+              </p>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {serviceAreas.map((area) => {
-              const Icon = area.icon;
+              <p>
+                Depending on our current programmes and needs, opportunities
+                may involve education, family support, child protection,
+                community outreach, events, communications, technology, or
+                other areas where your skills can contribute.
+              </p>
 
-              return (
-                <div
-                  key={area.title}
-                  className="ftf-card p-6 transition duration-300 hover:-translate-y-1 hover:border-[#4DD0E1]/20"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#5e35b1]/20 text-[#4DD0E1]">
-                    <Icon size={22} />
-                  </div>
-
-                  <h3 className="mt-5 text-lg font-bold text-white">
-                    {area.title}
-                  </h3>
-
-                  <p className="mt-2 leading-7 text-[#AEB9CD]">
-                    {area.description}
-                  </p>
-                </div>
-              );
-            })}
+              <Link
+                to="/programs"
+                className="inline-flex items-center gap-2 font-semibold text-[#4DD0E1] transition hover:text-white"
+              >
+                See what we do
+                <ArrowRight size={17} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          WHAT WE VALUE
-      ========================================================= */}
-      <section className="ftf-section bg-[#080d20]">
+      {/* WHAT WE VALUE */}
+      <section className="ftf-section bg-[#050817]">
         <div className="ftf-container">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+              <p className="font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
                 Our expectations
               </p>
 
-              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
                 Volunteer with purpose.
               </h2>
 
               <p className="mt-5 max-w-xl leading-8 text-[#AEB9CD]">
-                Because our work involves children and families, every
-                volunteer is expected to contribute with respect,
-                responsibility, safeguarding, and professionalism.
+                Because our work involves children and families, we expect
+                every volunteer to contribute with respect, responsibility,
+                safeguarding, and professionalism.
               </p>
             </div>
 
@@ -269,7 +215,7 @@ export default function Volunteer() {
               {principles.map((principle) => (
                 <div
                   key={principle}
-                  className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-4"
+                  className="flex items-start gap-3 rounded-xl border border-white/5 bg-[#0B1022] p-4"
                 >
                   <CheckCircle2
                     size={20}
@@ -286,22 +232,20 @@ export default function Volunteer() {
         </div>
       </section>
 
-      {/* =========================================================
-          VOLUNTEER FORM
-      ========================================================= */}
-      <section id="volunteer-form" className="ftf-section">
+      {/* VOLUNTEER FORM */}
+      <section id="volunteer-form" className="ftf-section bg-[#0B1022]">
         <div className="ftf-container">
           <div className="mx-auto max-w-4xl">
             <div className="mx-auto max-w-2xl text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5e35b1]/20 text-[#4DD0E1]">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#5E35B1]/20 text-[#4DD0E1]">
                 <Heart size={28} />
               </div>
 
-              <p className="mt-6 text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
+              <p className="mt-6 font-['Poppins'] text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
                 Volunteer application
               </p>
 
-              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+              <h2 className="mt-4 font-['Poppins'] text-3xl font-extrabold text-white md:text-4xl">
                 Tell us how you would like to contribute.
               </h2>
 
@@ -333,7 +277,7 @@ export default function Volunteer() {
                     required
                     autoComplete="name"
                     placeholder="Enter your full name"
-                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                    className="w-full rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748A] focus:border-[#4DD0E1]/50"
                   />
                 </div>
 
@@ -355,7 +299,7 @@ export default function Volunteer() {
                     required
                     autoComplete="email"
                     placeholder="you@example.com"
-                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                    className="w-full rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748A] focus:border-[#4DD0E1]/50"
                   />
                 </div>
 
@@ -376,7 +320,7 @@ export default function Volunteer() {
                     onChange={handleChange}
                     autoComplete="tel"
                     placeholder="Enter your phone number"
-                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                    className="w-full rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748A] focus:border-[#4DD0E1]/50"
                   />
                 </div>
 
@@ -396,7 +340,7 @@ export default function Volunteer() {
                     value={formData.area}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition focus:border-[#4DD0E1]/50"
+                    className="w-full rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition focus:border-[#4DD0E1]/50"
                   >
                     <option value="" disabled>
                       Select an area
@@ -427,7 +371,7 @@ export default function Volunteer() {
                   onChange={handleChange}
                   rows={5}
                   placeholder="Tell us about your interests, skills, experience, or how you would like to contribute..."
-                  className="w-full resize-none rounded-xl border border-white/10 bg-[#0b1022] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748a] focus:border-[#4DD0E1]/50"
+                  className="w-full resize-none rounded-xl border border-white/10 bg-[#050817] px-4 py-3.5 text-white outline-none transition placeholder:text-[#68748A] focus:border-[#4DD0E1]/50"
                 />
               </div>
 
@@ -472,42 +416,7 @@ export default function Volunteer() {
           </div>
         </div>
       </section>
-
-      {/* =========================================================
-          FINAL CTA
-      ========================================================= */}
-      <section className="ftf-section">
-        <div className="ftf-container">
-          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#17102f] via-[#12182c] to-[#091827] p-8 md:p-12">
-            <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#5e35b1]/20 blur-3xl" />
-
-            <div className="relative grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
-              <div>
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
-                  Transforming futures through kindness
-                </p>
-
-                <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-                  Your contribution can make a difference.
-                </h2>
-
-                <p className="mt-4 max-w-2xl leading-7 text-[#AEB9CD]">
-                  Join Favored Tribe Foundation in creating stronger
-                  conditions for children and families to thrive.
-                </p>
-              </div>
-
-              <Link
-                to="/get-involved"
-                className="ftf-btn-primary whitespace-nowrap"
-              >
-                Get Involved
-                <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
+
