@@ -32,9 +32,7 @@ export default function Navbar() {
   const toggleMobile = () => {
     setMobileOpen((value) => {
       const newValue = !value;
-
       document.body.style.overflow = newValue ? "hidden" : "";
-
       return newValue;
     });
   };
@@ -44,7 +42,24 @@ export default function Navbar() {
       {/* TOP NAVBAR */}
       <div className="border-b border-white/10 bg-[#050817]/95 backdrop-blur-xl">
         <div className="ftf-container">
-          <div className="flex h-[72px] items-center justify-end">
+          <div className="flex h-[72px] items-center justify-between">
+            {/* LOGO + FOUNDATION NAME */}
+            <Link
+              to="/"
+              className="flex min-w-0 items-center gap-3"
+              aria-label="Favored Tribe Foundation home"
+            >
+              <img
+                src="/logo.png"
+                alt="Favored Tribe Foundation"
+                className="h-11 w-auto max-w-[58px] object-contain"
+              />
+
+             <span className="max-w-[180px] truncate font-['Poppins'] text-xs font-bold leading-tight text-white sm:max-w-[210px] sm:text-sm">
+  Favored Tribe Foundation
+</span>
+            </Link>
+
             {/* DESKTOP NAVIGATION */}
             <div className="hidden items-center lg:flex">
               <nav className="flex items-center gap-1">
@@ -139,15 +154,29 @@ export default function Navbar() {
           <div className="border-b border-white/10">
             <div className="ftf-container">
               <div className="flex h-[72px] items-center justify-between">
-                <span className="text-sm font-semibold uppercase tracking-[0.18em] text-[#71809A]">
-                  Menu
-                </span>
+                {/* MOBILE LOGO + NAME */}
+                <Link
+                  to="/"
+                  onClick={closeMobile}
+                  className="flex min-w-0 items-center gap-3"
+                  aria-label="Favored Tribe Foundation home"
+                >
+                  <img
+                    src="/logo.png"
+                    alt="Favored Tribe Foundation"
+                    className="h-10 w-auto max-w-[52px] object-contain"
+                  />
+
+                  <span className="max-w-[190px] font-['Poppins'] text-sm font-bold leading-tight text-white">
+                    Favored Tribe Foundation
+                  </span>
+                </Link>
 
                 <button
                   type="button"
                   onClick={closeMobile}
                   aria-label="Close menu"
-                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
                 >
                   <X size={22} />
                 </button>

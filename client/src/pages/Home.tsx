@@ -77,23 +77,6 @@ export default function Home() {
             {/* ================= LEFT ================= */}
             <div className="ftf-fade-up">
 
-              {/* Brand */}
-              <div className="mb-7 inline-flex max-w-full items-center gap-3 rounded-full border border-[#4DD0E1]/25 bg-[#4DD0E1]/5 px-3 py-2.5 backdrop-blur-md sm:mb-8 sm:gap-4 sm:px-4">
-
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10">
-                  <img
-                    src="/logo.png"
-                    alt="Favored Tribe Foundation logo"
-                    className="h-9 w-9 object-contain brightness-125 contrast-110 sm:h-10 sm:w-10"
-                  />
-                </div>
-
-                <span className="font-['Poppins'] text-[10px] font-extrabold leading-tight tracking-[0.06em] text-[#4DD0E1] sm:text-sm sm:tracking-wide md:text-base">
-                  FAVORED TRIBE FOUNDATION
-                </span>
-
-              </div>
-
               {/* Main heading */}
               <h1 className="max-w-3xl font-['Poppins'] text-4xl font-extrabold leading-[1.02] tracking-[-0.03em] text-[#F1F3FA] sm:text-6xl lg:text-[76px]">
                 Creating hope.
@@ -194,7 +177,6 @@ export default function Home() {
 
         <div className="ftf-container">
 
-          {/* Section heading */}
           <div className="max-w-2xl">
 
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
@@ -212,7 +194,6 @@ export default function Home() {
 
           </div>
 
-          {/* Pillars */}
           <div className="mt-10 grid gap-5 sm:mt-12 md:grid-cols-3">
 
             {pillars.map((pillar) => {
@@ -258,7 +239,6 @@ export default function Home() {
 
         <div className="ftf-container py-14 sm:py-20">
 
-          {/* Section heading */}
           <div className="max-w-2xl">
 
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#4DD0E1]">
@@ -277,7 +257,6 @@ export default function Home() {
 
           </div>
 
-          {/* Ways */}
           <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
 
             {waysToWorkWithUs.map((way) => {
@@ -313,7 +292,6 @@ export default function Home() {
 
           </div>
 
-          {/* Contact CTA */}
           <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-[28px] border border-white/5 bg-[#111A2D] p-6 sm:mt-12 sm:flex-row sm:items-center sm:p-8">
 
             <div>
